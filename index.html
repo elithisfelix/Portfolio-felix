@@ -172,7 +172,7 @@
     @keyframes tickBl{0%,100%{opacity:1}50%{opacity:.3}}
     .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
     .photo-ring{width:180px;height:180px;border-radius:50%;padding:4px;background:conic-gradient(var(--accent),var(--accent3),var(--accent));animation:ringRot 4s linear infinite;flex-shrink:0}
-    .photo-inner{width:100%;height:100%;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;font-family:'Space Mono',monospace}
+    .photo-inner{width:100%;height:100%;border-radius:50%;background:var(--bg2);overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;font-family:'Space Mono',monospace}
     @keyframes ringRot{to{transform:rotate(360deg)}}
 
     /* ==============================================
@@ -537,13 +537,8 @@
           </div>
         </div>
         <div class="photo-ring">
-          <div class="photo-inner" style="overflow:hidden;padding:0;">
-            <img
-              src="assets/images/felix-photo.jpg"
-              alt="Felix Perrault"
-              style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"
-              loading="eager"
-            />
+          <div class="photo-inner" style="overflow:hidden;padding:0;background:transparent;">
+            <img src="assets/images/felix-photo.jpg" alt="Felix Perrault" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" loading="eager" onerror="this.style.display='none'">
           </div>
         </div>
       </div>
