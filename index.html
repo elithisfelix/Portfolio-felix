@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://unpkg.com/simple-icons@v11/index.js" crossorigin="anonymous"></script>
   <style>
     /* ==============================================
        VARIABLES DARK / LIGHT
@@ -141,6 +142,18 @@
     @keyframes auF{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(60px,-40px) scale(1.05)}50%{transform:translate(-30px,50px) scale(.95)}75%{transform:translate(-50px,-20px) scale(1.02)}}
     [data-theme="light"] .aurora{opacity:0!important}
     .hero-content{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%; height: 100%;
+      background-image:
+        linear-gradient(rgba(0,255,135,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,135,0.025) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
     .hero-left{max-width:640px}
     .hero h1{font-size:clamp(2.6rem,6vw,4.5rem);font-weight:700;line-height:1.05;letter-spacing:-2px;margin-bottom:14px;background:linear-gradient(90deg,#00ff87,#a855f7,#00ff87);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:hGrad 4s linear infinite}
     @keyframes hGrad{0%{background-position:0% 50%}100%{background-position:200% 50%}}
@@ -170,10 +183,11 @@
     .memo p{margin-bottom:8px}
     .memo strong{color:var(--text)}
     .stat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
-    .stat-c{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-align:center;transition:border-color .3s,transform .3s}
+    .stat-c{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-align:center;transition:border-color .3s,transform .3s;display:flex;flex-direction:column;align-items:center;gap:6px}
     .stat-c:hover{border-color:var(--accent);transform:translateY(-3px)}
     .stat-num{font-family:'Space Mono',monospace;font-size:2rem;font-weight:700;color:var(--accent);line-height:1.2}
     .stat-lab{font-size:.78rem;color:var(--muted);margin-top:4px}
+    .stat-icon{color:var(--accent);opacity:.6;margin-bottom:2px}
     .about-lang-block{display:flex;justify-content:center;margin-bottom:36px;width:100%}
     .lang-bars{width:100%;max-width:420px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
     .lang-item{margin-bottom:16px;width:100%;max-width:380px}
@@ -194,8 +208,7 @@
     .radar-axis{stroke:var(--border);stroke-width:1}
     .radar-label{font-family:'Space Mono',monospace;font-size:11px;fill:var(--muted);text-anchor:middle}
     .badges-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-    .badge-group{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
-    .badge-group:hover{border-color:var(--accent)}
+    .badge-group{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
     .badge-group h4{font-size:.95rem;margin-bottom:12px}
     .badges{display:flex;flex-wrap:wrap;gap:6px}
     .badge{padding:5px 12px;border-radius:50px;font-size:.75rem;font-weight:500;background:var(--accent-glow);color:var(--accent);border:1px solid rgba(0,255,135,.15)}
@@ -256,7 +269,7 @@
     .read-tagline{margin-top:auto;padding-top:14px;margin-bottom:0;border-top:1px solid var(--border);font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-style:italic;font-weight:500;line-height:1.45;color:var(--accent3)}
     .read-card--accent-p .read-tagline{color:var(--accent3)}
     .read-card ul{list-style:none;font-size:.78rem;color:var(--muted);display:flex;flex-direction:column;gap:4px}
-    .read-card ul li::before{content:'→ ';color:var(--accent)}
+    .read-card ul li::before{content:'→ ';color:var(--accent);display:inline-block;transition:transform .2s ease}
     .read-card--accent-p ul li::before{color:#a855f7}
 
     /* ==============================================
@@ -275,7 +288,7 @@
     .leg-name{font-weight:600;font-size:.88rem}
     .leg-pct{font-family:'Space Mono',monospace;font-size:.78rem;color:var(--muted)}
     .leg-bar-bg{height:4px;background:var(--border);border-radius:50px;margin-top:3px}
-    .leg-bar{height:100%;border-radius:50px}
+    .leg-bar{height:100%;border-radius:50px;width:0;transition:width 1s cubic-bezier(.25,.8,.25,1)}
     .pf-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
     .pf-b{padding:5px 12px;border-radius:50px;font-size:.72rem;font-weight:500;background:var(--card);border:1px solid var(--border);color:var(--muted)}
     .bullish{color:#00ff87;border-color:rgba(0,255,135,.3);animation:tickBl 2s ease-in-out infinite}
@@ -342,10 +355,11 @@
        SERVICES — The Analyst Room
        ============================================== */
     .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .srv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;backdrop-filter:blur(10px);position:relative;overflow:hidden;transition:all .3s}
+    .srv-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--radius);padding:30px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:relative;overflow:hidden;transition:all .3s}
     .srv-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform .4s}
     .srv-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 12px 40px var(--shadow)}
     .srv-card:hover::after{transform:scaleX(1)}
+    [data-theme="light"] .srv-card{background:rgba(0,0,0,.04)}
     .srv-card.green::after{background:linear-gradient(90deg,#00ff87,#059669)}
     .srv-card.orange::after{background:linear-gradient(90deg,#f97316,#fb923c)}
     .srv-card.violet::after{background:linear-gradient(90deg,#a855f7,#c084fc)}
@@ -394,14 +408,23 @@
       .nav-links{position:fixed;top:var(--nav-h);left:0;right:0;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--border);transform:translateY(-120%);opacity:0;pointer-events:none;transition:transform .3s,opacity .3s}
       .nav-links.open{transform:translateY(0);opacity:1;pointer-events:all}
       .ham{display:flex}
-      .hero-content{grid-template-columns:1fr}
-      .photo-ring{width:120px;height:120px;margin:0 auto 20px}
-      .hero-left{text-align:center}
-      .hero-btns,.tickers{justify-content:center}
+      .hero::after{display:none}
+      .hero-content{display:flex;flex-direction:column-reverse;align-items:center;gap:24px}
+      .hero-left{text-align:center;width:100%}
+      .photo-ring{width:140px;height:140px;margin:0 auto}
+      .tickers{justify-content:center}
+      .tick{flex:0 1 calc(50% - 8px);justify-content:center}
+      .hero-btns{flex-direction:column;align-items:stretch;gap:10px}
+      .hero-btns .btn{justify-content:center;width:100%}
       .hero-quote{margin-left:auto;margin-right:auto}
+      .badges-grid{grid-template-columns:1fr}
+      .passion-logos{gap:8px}
+      .passion-logos img{width:20px;height:20px}
       .ct-grid,.pf-layout{grid-template-columns:1fr}
       .pf-layout{justify-items:center}
+      .pf-legend{width:100%;max-width:300px}
       .stat-cards,.pf-stats{grid-template-columns:1fr}
+      .srv-grid{grid-template-columns:1fr}
       .tl-line,.tl-fill{left:6px;transform:none}
       .tl-item,.tl-item:nth-child(odd),.tl-item:nth-child(even){left:0;width:100%;text-align:left;padding:0 0 32px 36px}
       .tl-dot,.tl-item:nth-child(odd) .tl-dot,.tl-item:nth-child(even) .tl-dot{left:0;right:auto}
@@ -409,22 +432,44 @@
       .tl-item.vis .exp-c{transform:translate(0)}
       .radar-wrap{flex-direction:column}
       .radar-svg{width:260px;height:260px}
-      section{padding:72px 0}
+      section{padding:72px 0;overflow-x:hidden}
       .cur-dot,.cur-trail{display:none}
       body{cursor:auto}
       a,.btn,.ct-link,.theme-btn,.ham,.btt,.lang-sw button{cursor:pointer}
       .lang-sw{margin-left:0;align-self:center}
-      .srv-grid{grid-template-columns:1fr}
       .nl-form{flex-direction:column}
       .nl-form button{width:100%}
+      .btn,.ct-link,.srv-btn,.lang-sw button,.theme-btn{min-height:44px}
+      .memo{font-size:.78rem;overflow-x:auto}
     }
     @media(max-width:480px){
-      .hero-btns{flex-direction:column;align-items:stretch}
-      .btn{justify-content:center}
+      .stat-cards{grid-template-columns:1fr}
+      .hero-quote{font-size:.8rem}
       .tickers{flex-direction:column;align-items:center}
+      .tick{width:100%;max-width:240px;justify-content:center}
       .read-grid{grid-template-columns:1fr!important;max-width:none;gap:18px}
       .badges-grid{grid-template-columns:1fr}
     }
+
+    /* ── PULSE badge OPEN TO ── */
+    .tick:last-child{animation:pulseGreen 2s ease-in-out infinite}
+    @keyframes pulseGreen{0%,100%{box-shadow:0 0 0 0 rgba(0,255,135,.4)}50%{box-shadow:0 0 0 8px rgba(0,255,135,0)}}
+
+    /* ── HOVER cards compétences ── */
+    .badge-group:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 0 20px rgba(0,255,135,.15)}
+
+    /* ── HOVER liens passions (→ tool) ── */
+    .read-card ul li:hover::before{transform:translateX(4px)}
+
+    /* ── BADGE logo alignement ── */
+    .badge-logo{display:inline-flex;align-items:center}
+
+    /* ── PASSION logos row responsive ── */
+    .passion-logos img{opacity:.75;transition:opacity .2s,transform .2s;filter:grayscale(20%)}
+    .passion-logos img:hover{opacity:1;transform:scale(1.15);filter:grayscale(0%)}
+
+    /* ── ANIMATION leg-bar au scroll ── */
+    .leg-bar.animated{/* largeur finale appliquée en JS */}
   </style>
 </head>
 <body>
@@ -492,7 +537,14 @@
           </div>
         </div>
         <div class="photo-ring">
-          <div class="photo-inner">[Photo]</div>
+          <div class="photo-inner" style="overflow:hidden;padding:0;">
+            <img
+              src="assets/images/felix-photo.jpg"
+              alt="Felix Perrault"
+              style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -510,9 +562,9 @@
         <p><strong>3+ <span data-lang="en">years</span><span data-lang="fr">ans</span></strong> <span data-lang="en">B2B/B2C experience. Based in Dublin. Thinking globally.</span><span data-lang="fr">d'expérience B2B/B2C. Basé à Dublin. Vision globale.</span></p>
       </div>
       <div class="stat-cards rv rv-up">
-        <div class="stat-c"><div class="stat-num" data-target="4">0</div><div class="stat-lab"><span data-lang="en">Years of professional experience</span><span data-lang="fr">4 ans d'experience professionnelle</span></div></div>
-        <div class="stat-c"><div class="stat-num" data-target="3">0</div><div class="stat-lab"><span data-lang="en">Languages</span><span data-lang="fr">Langues</span></div></div>
-        <div class="stat-c"><div class="stat-num" data-target="3">0</div><div class="stat-lab"><span data-lang="en">Countries lived in</span><span data-lang="fr">Pays habités</span></div></div>
+        <div class="stat-c"><i data-feather="briefcase" class="stat-icon" style="width:22px;height:22px;"></i><div class="stat-num" data-target="4">0</div><div class="stat-lab"><span data-lang="en">Years of professional experience</span><span data-lang="fr">4 ans d'experience professionnelle</span></div></div>
+        <div class="stat-c"><i data-feather="globe" class="stat-icon" style="width:22px;height:22px;"></i><div class="stat-num" data-target="3">0</div><div class="stat-lab"><span data-lang="en">Languages</span><span data-lang="fr">Langues</span></div></div>
+        <div class="stat-c"><i data-feather="map-pin" class="stat-icon" style="width:22px;height:22px;"></i><div class="stat-num" data-target="3">0</div><div class="stat-lab"><span data-lang="en">Countries lived in</span><span data-lang="fr">Pays habités</span></div></div>
       </div>
       <div class="about-lang-block rv rv-up">
         <div class="lang-bars">
@@ -557,11 +609,11 @@
         </div>
         <div class="badge-group rv rv-r">
           <h4>📣 Marketing</h4>
-          <div class="badges"><span class="badge">Google Ads</span><span class="badge">SEO</span><span class="badge">Canva</span><span class="badge"><span data-lang="en">Digital Campaigns</span><span data-lang="fr">Campagnes digitales</span></span><span class="badge">Analytics</span></div>
+          <div class="badges"><span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googleads/4285F4" width="13" height="13" loading="lazy"> Google Ads</span><span class="badge">SEO</span><span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/canva/00C4CC" width="13" height="13" loading="lazy"> Canva</span><span class="badge"><span data-lang="en">Digital Campaigns</span><span data-lang="fr">Campagnes digitales</span></span><span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googleanalytics/E37400" width="13" height="13" loading="lazy"> Analytics</span></div>
         </div>
         <div class="badge-group rv rv-l">
           <h4>🛠️ <span data-lang="en">Tools</span><span data-lang="fr">Outils</span></h4>
-          <div class="badges"><span class="badge o">WordPress</span><span class="badge o">PrestaShop</span><span class="badge o">Microsoft Office</span><span class="badge o">Cursor AI</span><span class="badge o">Google Maps</span></div>
+          <div class="badges"><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/wordpress/21759B" width="13" height="13" loading="lazy"> WordPress</span><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/prestashop/DF0067" width="13" height="13" loading="lazy"> PrestaShop</span><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/microsoftoffice/D83B01" width="13" height="13" loading="lazy"> Microsoft Office</span><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><i data-feather="zap" style="width:13px;height:13px;vertical-align:middle;"></i> Cursor AI</span><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googlemaps/4285F4" width="13" height="13" loading="lazy"> Google Maps</span></div>
         </div>
         <div class="badge-group rv rv-r">
           <h4>🌍 <span data-lang="en">Languages</span><span data-lang="fr">Langues</span></h4>
@@ -583,8 +635,8 @@
           <div class="tl-dot"></div>
           <div class="exp-c">
             <div class="exp-status active"><span data-lang="en">🟢 ACTIVE — COGNIZANT — DUBLIN — FEB. 2025 → PRESENT</span><span data-lang="fr">🟢 ACTIVE — COGNIZANT — DUBLIN — FÉV. 2025 → PRÉSENT</span></div>
-            <p class="exp-co">Cognizant</p>
-            <p class="exp-role">Google Maps Moderator</p>
+            <p class="exp-co"><img src="https://cdn.simpleicons.org/cognizant/1677be" width="18" height="18" loading="lazy" style="vertical-align:middle;margin-right:6px;">Cognizant</p>
+            <p class="exp-role" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;"><img src="https://cdn.simpleicons.org/google/4285F4" width="14" height="14" alt="Google" loading="lazy" style="vertical-align:middle;">Google Maps Moderator</p>
             <p class="exp-loc"><span data-lang="en">📍 Dublin, Ireland</span><span data-lang="fr">📍 Dublin, Irlande</span></p>
             <p style="font-size:.82rem;color:var(--muted);margin-bottom:8px;font-style:italic"><span data-lang="en">Key returns :</span><span data-lang="fr">Rendements clés :</span></p>
             <ul class="exp-ul">
@@ -692,10 +744,10 @@
         <div class="donut-w"><div class="donut"><div class="donut-hole"><div class="donut-big mono">100%</div><div class="donut-sm"><span data-lang="en">Allocated</span><span data-lang="fr">Alloué</span></div></div></div></div>
         <div>
           <div class="pf-legend">
-            <div class="leg-item"><div class="leg-dot" style="background:#1d4ed8"></div><div class="leg-info"><div class="leg-name">MSCI World ETF</div><div class="leg-pct">65%</div><div class="leg-bar-bg"><div class="leg-bar" style="width:65%;background:#1d4ed8"></div></div></div></div>
-            <div class="leg-item"><div class="leg-dot" style="background:#f97316"></div><div class="leg-info"><div class="leg-name">Bitcoin BTC</div><div class="leg-pct">25%</div><div class="leg-bar-bg"><div class="leg-bar" style="width:25%;background:#f97316"></div></div></div></div>
-            <div class="leg-item"><div class="leg-dot" style="background:#8b5cf6"></div><div class="leg-info"><div class="leg-name">Ethereum ETH</div><div class="leg-pct">5%</div><div class="leg-bar-bg"><div class="leg-bar" style="width:5%;background:#8b5cf6"></div></div></div></div>
-            <div class="leg-item"><div class="leg-dot" style="background:#00ff87"></div><div class="leg-info"><div class="leg-name">Bittensor TAO</div><div class="leg-pct">5%</div><div class="leg-bar-bg"><div class="leg-bar" style="width:5%;background:#00ff87"></div></div></div></div>
+            <div class="leg-item"><div class="leg-dot" style="background:#1d4ed8"></div><div class="leg-info"><div class="leg-name"><i data-feather="trending-up" style="width:14px;height:14px;color:#1d4ed8;margin-right:5px;vertical-align:middle;"></i>MSCI World ETF</div><div class="leg-pct">65%</div><div class="leg-bar-bg"><div class="leg-bar" data-w="65" style="background:#1d4ed8"></div></div></div></div>
+            <div class="leg-item"><div class="leg-dot" style="background:#f97316"></div><div class="leg-info"><div class="leg-name"><img src="https://cdn.simpleicons.org/bitcoin/F7931A" width="15" height="15" style="margin-right:5px;vertical-align:middle;">Bitcoin BTC</div><div class="leg-pct">25%</div><div class="leg-bar-bg"><div class="leg-bar" data-w="25" style="background:#f97316"></div></div></div></div>
+            <div class="leg-item"><div class="leg-dot" style="background:#8b5cf6"></div><div class="leg-info"><div class="leg-name"><img src="https://cdn.simpleicons.org/ethereum/627EEA" width="15" height="15" style="margin-right:5px;vertical-align:middle;">Ethereum ETH</div><div class="leg-pct">5%</div><div class="leg-bar-bg"><div class="leg-bar" data-w="5" style="background:#8b5cf6"></div></div></div></div>
+            <div class="leg-item"><div class="leg-dot" style="background:#00ff87"></div><div class="leg-info"><div class="leg-name"><i data-feather="cpu" style="width:14px;height:14px;color:#8b5cf6;margin-right:5px;vertical-align:middle;"></i>Bittensor TAO</div><div class="leg-pct">5%</div><div class="leg-bar-bg"><div class="leg-bar" data-w="5" style="background:#00ff87"></div></div></div></div>
           </div>
           <div class="pf-badges">
             <span class="pf-b bullish">BULLISH 📈</span>
@@ -887,6 +939,11 @@
     const barObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.style.width=e.target.dataset.w+'%'})},{threshold:.3});
     document.querySelectorAll('.lang-fill').forEach(b=>barObs.observe(b));
 
+    (function(){
+      const legBarObs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const b=e.target,w=b.dataset.w;if(w){b.style.width=w+'%';b.classList.add('animated')}legBarObs.unobserve(b)})},{threshold:.3});
+      document.querySelectorAll('.pf-legend .leg-bar').forEach(b=>legBarObs.observe(b));
+    })();
+
     /* ============ RADAR CHART SVG ============ */
     (function(){
       const vals=[80,80,75,70,80,75];
@@ -948,6 +1005,7 @@
       const detected=saved||(navigator.language.startsWith('fr')?'fr':'en');
       setLang(detected);
     })();
+    feather.replace();
   </script>
 </body>
 </html>
