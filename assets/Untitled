@@ -1,1 +1,1 @@
-git add . && git commit -m "photo PNG sans fond" && git push
+cp assets/Images.jpg assets/images/felix-photo.jpg
