@@ -854,14 +854,14 @@
           <div class="srv-icon">🎓</div>
           <h3><span data-lang="en">Crypto Beginner</span><span data-lang="fr">Crypto Débutant</span></h3>
           <p><span data-lang="en">2h mini-course to understand BTC, ETH, Layer 1/2 and build your first conviction. Your first two hours free — then 30€/hour.</span><span data-lang="fr">Mini-formation 2h pour comprendre BTC, ETH et Layer 1/2 et construire ta première conviction. Les deux premières heures offertes, puis 30€/h.</span></p>
-          <a href="#contact" class="srv-btn orange"><span data-lang="en">Get in touch</span><span data-lang="fr">Accéder</span> →</a>
+          <a href="https://calendly.com/felixperrault/visioconferences-pour-ameliorer-son-site" target="_blank" rel="noopener noreferrer" class="srv-btn orange"><span data-lang="en">Get in touch</span><span data-lang="fr">Accéder</span> →</a>
         </div>
         <div class="srv-card violet rv rv-r">
           <span class="srv-price violet">40€/h</span>
           <div class="srv-icon">🤝</div>
           <h3><span data-lang="en">Invest Beginner</span><span data-lang="fr">Création de tes premiers investissements</span></h3>
           <p><span data-lang="en">2h session — we build your first portfolio together: allocation, strategy & risk management tailored to you. Your first two hours free — then 40€/hour.</span><span data-lang="fr">Séance de 2h — on construit ton premier portefeuille ensemble : allocation, stratégie & gestion du risque sur-mesure. Les deux premières heures offertes, puis 40€/h.</span></p>
-          <a href="#contact" class="srv-btn violet"><span data-lang="en">Get in touch</span><span data-lang="fr">Réserver</span> →</a>
+          <a href="https://calendly.com/felixperrault/visioconferences-pour-ameliorer-son-site" target="_blank" rel="noopener noreferrer" class="srv-btn violet"><span data-lang="en">Get in touch</span><span data-lang="fr">Réserver</span> →</a>
         </div>
         <div class="srv-card cyan rv rv-up">
           <span class="srv-price cyan">Sur devis</span>
@@ -891,10 +891,11 @@
             <a href="mailto:elithisfelix@gmail.com" class="ct-link"><i data-feather="mail"></i>elithisfelix@gmail.com</a>
           </div>
         </div>
-        <form class="ct-form rv rv-r" onsubmit="handleSubmit(event)">
-          <div class="fg"><label for="nm"><span data-lang="en">Name</span><span data-lang="fr">Nom</span></label><input type="text" id="nm" data-ph-en="Your name" data-ph-fr="Votre nom" placeholder="Your name" required></div>
-          <div class="fg"><label for="em">Email</label><input type="email" id="em" placeholder="your@email.com" required></div>
-          <div class="fg"><label for="msg">Message</label><textarea id="msg" data-ph-en="Your message..." data-ph-fr="Votre message..." placeholder="Your message..." required></textarea></div>
+        <form class="ct-form rv rv-r" onsubmit="handleSubmit(event)" action="https://formspree.io/f/mdapepbj" method="POST">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+          <div class="fg"><label for="nm"><span data-lang="en">Name</span><span data-lang="fr">Nom</span></label><input type="text" id="nm" name="name" data-ph-en="Your name" data-ph-fr="Votre nom" placeholder="Your name" required></div>
+          <div class="fg"><label for="em">Email</label><input type="email" id="em" name="email" placeholder="your@email.com" required></div>
+          <div class="fg"><label for="msg">Message</label><textarea id="msg" name="message" data-ph-en="Your message..." data-ph-fr="Votre message..." placeholder="Your message..." required></textarea></div>
           <button type="submit" class="btn btn-p" id="submitBtn"><i data-feather="send" style="width:16px;height:16px"></i> <span data-lang="en">Send it 🚀</span><span data-lang="fr">Envoyer 🚀</span></button>
         </form>
       </div>
@@ -1037,7 +1038,44 @@
     btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
     /* ============ FORM ============ */
-    function handleSubmit(e){e.preventDefault();const b=document.getElementById('submitBtn');const o=b.innerHTML;b.innerHTML=curLang==='fr'?'✅ Message envoyé !':'✅ Message sent!';b.style.background='#22c55e';setTimeout(()=>{b.innerHTML=o;b.style.background='';feather.replace();e.target.reset()},2500)}
+    async function handleSubmit(e){
+      e.preventDefault();
+      const form=e.target;
+      const b=document.getElementById('submitBtn');
+      const o=b.innerHTML;
+
+      if(!form.action){
+        b.innerHTML=curLang==='fr'?'⚠️ Formspree non configuré':'⚠️ Formspree not configured';
+        b.style.background='#f97316';
+        setTimeout(()=>{b.innerHTML=o;b.style.background='';feather.replace()},2500);
+        return;
+      }
+
+      b.disabled=true;
+      b.innerHTML=curLang==='fr'?'⏳ Envoi...':'⏳ Sending...';
+
+      try{
+        const res=await fetch(form.action,{
+          method:'POST',
+          headers:{'Accept':'application/json'},
+          body:new FormData(form)
+        });
+        if(!res.ok) throw new Error('Form submit failed');
+        b.innerHTML=curLang==='fr'?'✅ Message envoyé !':'✅ Message sent!';
+        b.style.background='#22c55e';
+        form.reset();
+      }catch(err){
+        b.innerHTML=curLang==='fr'?'❌ Erreur, réessaie':'❌ Error, try again';
+        b.style.background='#ef4444';
+      }finally{
+        setTimeout(()=>{
+          b.disabled=false;
+          b.innerHTML=o;
+          b.style.background='';
+          feather.replace();
+        },2500);
+      }
+    }
 
     /* ============ KONAMI ============ */
     const kCode=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight'];let kI=0;
