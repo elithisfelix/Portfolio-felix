@@ -18,7 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/feather-icons"></script>
-  <script src="https://unpkg.com/simple-icons@v11/index.js" crossorigin="anonymous"></script>
   <style>
     /* ==============================================
        VARIABLES DARK / LIGHT
@@ -171,9 +170,42 @@
     .tick .arrow.purple{color:#a855f7;animation:tickBl 1.8s ease-in-out infinite}
     @keyframes tickBl{0%,100%{opacity:1}50%{opacity:.3}}
     .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-    .photo-ring{width:180px;height:180px;border-radius:50%;padding:4px;background:conic-gradient(var(--accent),var(--accent3),var(--accent));animation:ringRot 4s linear infinite;flex-shrink:0}
-    .photo-inner{width:100%;height:100%;border-radius:50%;background:var(--bg2);overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;font-family:'Space Mono',monospace}
-    @keyframes ringRot{to{transform:rotate(360deg)}}
+    .photo-ring{width:180px;height:180px;border-radius:50%;flex-shrink:0;animation:none;border:3px solid var(--accent);background:transparent}
+    .photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #080808;
+      overflow: hidden;
+      display: block;
+    }
+    .photo-ring,
+    .photo-inner,
+    .photo-inner img {
+      animation: none !important;
+    }
+    .photo-inner img {
+      transform: none !important;
+    }
+    .hero-profile {
+      position: relative;
+      z-index: 2;
+      isolation: isolate;
+      flex-shrink: 0;
+    }
+    .hero-profile,
+    .hero-profile .photo-ring,
+    .hero-profile .photo-inner,
+    .hero-profile img {
+      animation: none !important;
+    }
+    .hero-profile .photo-ring,
+    .hero-profile .photo-inner {
+      transform: rotate(0deg) !important;
+    }
+    .hero-profile img {
+      transform: rotate(0deg) scale(1) !important;
+    }
 
     /* ==============================================
        ABOUT — Investor Thesis
@@ -533,9 +565,11 @@
             <a href="#portfolio" class="btn btn-o"><span data-lang="en">Explore my work</span><span data-lang="fr">Explorer mon travail</span></a>
           </div>
         </div>
-        <div class="photo-ring">
-          <div class="photo-inner" style="overflow:hidden;padding:0;background:transparent;">
-            <img src="assets/images/felix-photo.jpg" alt="Felix Perrault" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" loading="eager" onerror="this.style.display='none'">
+        <div class="hero-profile">
+          <div class="photo-ring">
+            <div class="photo-inner" style="overflow:hidden;padding:0;background:transparent;">
+              <img src="assets/images/felix-photo.jpg" alt="Felix Perrault" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" loading="eager" onerror="this.style.display='none'">
+            </div>
           </div>
         </div>
       </div>
@@ -696,8 +730,15 @@
           <h4><span data-lang="en">Geopolitics & Macro</span><span data-lang="fr">Géopolitique & Macro</span></h4>
           <p class="read-meta-lab"><span data-lang="en">Topics</span><span data-lang="fr">Sujets</span></p>
           <ul>
-            <li><span data-lang="en">Evolution of dollar dominance</span><span data-lang="fr">Évolution de la domination du dollar</span></li>
-            <li><span data-lang="en">The strategic importance of energy</span><span data-lang="fr">L'importance stratégique de l'énergie</span></li>
+            <li><span data-lang="en">Dedollarization and the rise of BRICS — alternatives to the dollar gaining ground, yuan, bilateral agreements.</span><span data-lang="fr">La dédollarisation et l'essor des BRICS — montée en puissance des alternatives au dollar, yuan, accords bilatéraux</span></li>
+            <li><span data-lang="en">Global trade routes — strategic straits, Suez Canal, tensions in the South China Sea.</span><span data-lang="fr">Les routes commerciales mondiales — détroits stratégiques, Canal de Suez, tensions en mer de Chine</span></li>
+            <li><span data-lang="en">Technological economic war — semiconductors, China vs USA, digital sovereignty.</span><span data-lang="fr">La guerre économique technologique — semiconducteurs, Chine vs USA, souveraineté numérique</span></li>
+            <li><span data-lang="en">Global rearmament — rising military budgets in Europe, NATO, multipolarity.</span><span data-lang="fr">Le réarmement mondial — hausse des budgets militaires en Europe, OTAN, multipolarité</span></li>
+            <li><span data-lang="en">Gold and central bank reserves — return to physical gold, emerging-market strategies.</span><span data-lang="fr">L'or et les réserves des banques centrales — retour à l'or physique, stratégie des pays émergents</span></li>
+            <li><span data-lang="en">Water as a geopolitical resource — water stress, future conflicts over water.</span><span data-lang="fr">L'eau comme ressource géopolitique — stress hydrique, conflits futurs autour de l'eau</span></li>
+            <li><span data-lang="en">Energy transition as a tool of power — lithium, rare earths, who controls the green supply chain.</span><span data-lang="fr">La transition énergétique comme outil de pouvoir — lithium, terres rares, qui contrôle la chaîne verte</span></li>
+            <li><span data-lang="en">Central banks and monetary policy — Fed, ECB, interest rates, economic cycles.</span><span data-lang="fr">Les banques centrales et la politique monétaire — Fed, BCE, taux d'intérêt, cycles économiques</span></li>
+            <li><span data-lang="en">Artificial intelligence and national sovereignty — the AI race between great powers.</span><span data-lang="fr">L'intelligence artificielle et la souveraineté nationale — course à l'IA entre grandes puissances</span></li>
           </ul>
           <p class="read-tagline"><span data-lang="en">"Understanding power means understanding the world."</span><span data-lang="fr">« Comprendre le pouvoir, c'est comprendre le monde. »</span></p>
         </div>
@@ -771,17 +812,17 @@
           <a href="https://substack.com/@felixperrault" target="_blank" rel="noopener" class="srv-btn green"><span data-lang="en">Subscribe free</span><span data-lang="fr">S'abonner gratuitement</span> →</a>
         </div>
         <div class="srv-card orange rv rv-up">
-          <span class="srv-price orange">40€</span>
+          <span class="srv-price orange">30€/h</span>
           <div class="srv-icon">🎓</div>
           <h3><span data-lang="en">Crypto Beginner</span><span data-lang="fr">Crypto Débutant</span></h3>
-          <p><span data-lang="en">2h mini-course to understand BTC, ETH, Layer 1/2 and build your first conviction. First 2h session free — then 40€ total.</span><span data-lang="fr">Mini-formation 2h pour comprendre BTC, ETH et Layer 1/2 et construire ta première conviction. Première séance de 2h offerte — puis 40€ au total.</span></p>
+          <p><span data-lang="en">2h mini-course to understand BTC, ETH, Layer 1/2 and build your first conviction. Your first two hours free — then 30€/hour.</span><span data-lang="fr">Mini-formation 2h pour comprendre BTC, ETH et Layer 1/2 et construire ta première conviction. Les deux premières heures offertes, puis 30€/h.</span></p>
           <a href="https://gumroad.com" target="_blank" rel="noopener" class="srv-btn orange"><span data-lang="en">Get access</span><span data-lang="fr">Accéder</span> →</a>
         </div>
         <div class="srv-card violet rv rv-r">
-          <span class="srv-price violet">60€</span>
+          <span class="srv-price violet">40€/h</span>
           <div class="srv-icon">🤝</div>
-          <h3><span data-lang="en">1-on-1 Session</span><span data-lang="fr">Session individuelle</span></h3>
-          <p><span data-lang="en">1h session — we build your first portfolio together: allocation, strategy & risk management tailored to you. First session free — then 60€.</span><span data-lang="fr">Séance d'1h — on construit ton premier portefeuille ensemble : allocation, stratégie & gestion du risque sur-mesure. Première séance offerte — puis 60€.</span></p>
+          <h3><span data-lang="en">Creating your first investments</span><span data-lang="fr">Création de tes premiers investissements</span></h3>
+          <p><span data-lang="en">2h session — we build your first portfolio together: allocation, strategy & risk management tailored to you. Your first two hours free — then 40€/hour.</span><span data-lang="fr">Séance de 2h — on construit ton premier portefeuille ensemble : allocation, stratégie & gestion du risque sur-mesure. Les deux premières heures offertes, puis 40€/h.</span></p>
           <a href="https://calendly.com" target="_blank" rel="noopener" class="srv-btn violet"><span data-lang="en">Book now</span><span data-lang="fr">Réserver</span> →</a>
         </div>
       </div>
@@ -998,6 +1039,21 @@
       setLang(detected);
     })();
     feather.replace();
+
+    (function lockHeroProfilePhoto(){
+      var w=document.querySelector('.hero-profile');
+      if(!w)return;
+      w.style.setProperty('animation','none','important');
+      var ring=w.querySelector('.photo-ring');
+      var inner=w.querySelector('.photo-inner');
+      var img=w.querySelector('img');
+      [ring,inner,img].forEach(function(el){
+        if(el)el.style.setProperty('animation','none','important');
+      });
+      if(ring)ring.style.setProperty('transform','rotate(0deg)','important');
+      if(inner)inner.style.setProperty('transform','rotate(0deg)','important');
+      if(img)img.style.setProperty('transform','rotate(0deg) scale(1)','important');
+    })();
   </script>
 </body>
 </html>
