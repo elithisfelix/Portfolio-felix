@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felix Perrault — Professional Profile</title>
+  <meta name="description" content="Felix Perrault — Professional profile. Sales, Marketing & CRM. Based in Dublin.">
+  <meta property="og:title" content="Felix Perrault — Sales, Marketing & CRM">
+  <meta property="og:description" content="Multilingual business profile with experience in sales, CRM, marketing and digital tools. Based in Dublin.">
+  <meta property="og:image" content="assets/images/felix-photo.png">
+  <meta property="og:url" content="https://portfolio-felix-olive.vercel.app/pro/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Felix Perrault — Sales, Marketing & CRM">
+  <meta name="twitter:description" content="Multilingual business profile with experience in sales, CRM, marketing and digital tools. Based in Dublin.">
+  <meta name="twitter:image" content="assets/images/felix-photo.png">
+  <meta name="author" content="Felix Perrault">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23080808'/><text x='50' y='68' font-family='monospace' font-size='44' font-weight='bold' fill='%2300ff87' text-anchor='middle'>FP</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  
+  <!-- Remplacer G-XXXXXXXXXX par le vrai ID Google Analytics une fois créé -->
+</head>
+<body>
+  <!-- LOADER -->
+  <div class="loader" id="loader"><div class="loader-txt">FP</div></div>
+
+  <!-- CURSEUR + TRAÎNE -->
+  <div class="cur-dot" id="cDot"></div>
+  <div id="trailBox"></div>
+
+  <!-- SCROLL BAR -->
+  <div class="scroll-bar" id="sBar"></div>
+
+  <!-- CONFETTI -->
+  <div class="confetti-c" id="confC"></div>
+  <div class="e-msg" id="eMsg"><span data-lang="en">You found the secret 🎉</span><span data-lang="fr">Tu as trouvé le secret 🎉</span><br><span style="font-size:.85rem;color:var(--muted)">Felix Perrault — Sales, Marketing & CRM</span></div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav>
+    <div class="nav-in">
+      <a href="/" class="nav-logo">FP<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" onclick="closeM()"><span data-lang="en">About</span><span data-lang="fr">À propos</span></a></li>
+        <li><a href="#skills" onclick="closeM()"><span data-lang="en">Skills</span><span data-lang="fr">Compétences</span></a></li>
+        <li><a href="#xp" onclick="closeM()"><span data-lang="en">Experience</span><span data-lang="fr">Expériences</span></a></li>
+        <li><a href="#portfolio" onclick="closeM()"><span data-lang="en">Work</span><span data-lang="fr">Projets</span></a></li>
+        <li><a href="#contact" onclick="closeM()">Contact</a></li>
+        <li><button class="theme-btn" id="themeBtn" aria-label="Theme">🌙</button></li>
+        <li>
+          <div class="lang-sw" role="group" aria-label="Language">
+            <button id="btnFr" aria-pressed="false" onclick="setLang('fr')">🇫🇷 FR</button>
+            <button id="btnEn" aria-pressed="false" onclick="setLang('en')">🇬🇧 EN</button>
+          </div>
+        </li>
+        <li class="nav-version-sw">
+          <a href="/pro" class="nav-ver active" aria-current="page"><span data-lang="en">Pro</span><span data-lang="fr">Pro</span></a>
+          <span class="nav-ver-sep">/</span>
+          <a href="/perso" class="nav-ver"><span data-lang="en">Personal</span><span data-lang="fr">Perso</span></a>
+        </li>
+      </ul>
+      <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ==================== 1. HERO ==================== -->
+  <section class="hero" id="hero">
+    <canvas id="pCanvas"></canvas>
+    <div class="aurora au1"></div>
+    <div class="aurora au2"></div>
+    <div class="aurora au3"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-left">
+          <p class="hero-tag"><span data-lang="en">Dublin · Sales, Marketing & CRM</span><span data-lang="fr">Dublin · Sales, Marketing & CRM</span></p>
+          <h1>Felix Perrault</h1>
+          <div class="hero-typing"><span id="typed"></span><span class="cblink"></span></div>
+          <p class="hero-intro"><span data-lang="en">I work across sales, CRM and digital — with a background in client operations, B2B prospecting and marketing execution. Multilingual, based in Dublin, open to new roles.</span><span data-lang="fr">Je travaille en vente, CRM et digital — avec une expérience en opérations client, prospection B2B et exécution marketing. Multilingue, basé à Dublin, ouvert à de nouvelles opportunités.</span></p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn btn-p"><span data-lang="en">Get in touch</span><span data-lang="fr">Me contacter</span></a>
+            <a href="#xp" class="btn btn-o"><span data-lang="en">View my experience</span><span data-lang="fr">Mon expérience</span></a>
+          </div>
+        </div>
+        <div class="hero-profile">
+          <div class="photo-ring">
+            <div class="photo-inner" style="overflow:hidden;padding:0;background:transparent;">
+              <img src="../assets/images/felix-photo.jpg" alt="Felix Perrault" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;" loading="eager" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. ABOUT ==================== -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-en="About." data-text-fr="À propos.">About<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">A bit of context on who I am and what I bring to the table.</span><span data-lang="fr">Un peu de contexte sur qui je suis et ce que j'apporte.</span></p>
+
+      <div class="about-wrap rv rv-up">
+        <p><span data-lang="en">I've spent the past few years building experience across sales, client operations and digital tools — mostly through hands-on roles and work-study training. I'm comfortable in fast-moving environments, enjoy working directly with people and have a genuine curiosity for how technology can make businesses run better.</span><span data-lang="fr">Ces dernières années, j’ai construit mon expérience en vente, opérations client et outils digitaux — principalement via des missions terrain et une formation en alternance. Je suis à l’aise dans des environnements qui bougent vite, j’aime travailler directement avec les gens et j’ai une vraie curiosité pour la façon dont la technologie améliore le business.</span></p>
+        <p><span data-lang="en">I speak French, English and German — which has been genuinely useful in international teams. Currently based in Dublin and looking for roles in marketing, CRM, sales operations or digital projects, ideally somewhere with real responsibilities from day one.</span><span data-lang="fr">Je parle français, anglais et allemand — ce qui s’est avéré vraiment utile dans des équipes internationales. Actuellement basé à Dublin, je recherche des postes en marketing, CRM, opérations commerciales ou projets digitaux, idéalement avec de vraies responsabilités dès le premier jour.</span></p>
+
+        <div class="about-hi" aria-label="Highlights">
+          <span class="badge">5+ years experience</span>
+          <span class="badge v">🇫🇷 French</span><span class="badge v">🇬🇧 English C1</span><span class="badge v">🇩🇪 German B2</span>
+          <span class="badge o">📍 Dublin</span>
+          <span class="badge">Sales</span><span class="badge">CRM</span><span class="badge">Marketing</span><span class="badge o">Digital</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. SKILLS ==================== -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-en="Core Skills." data-text-fr="Compétences clés.">Core Skills<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">A practical mix of sales, CRM, client communication and digital tools.</span><span data-lang="fr">Un mix concret de vente, CRM, communication client et outils digitaux.</span></p>
+      <div class="badges-grid">
+        <div class="badge-group rv rv-l">
+          <h4>💼 <span data-lang="en">Sales & CRM</span><span data-lang="fr">Vente & CRM</span></h4>
+          <div class="badges">
+            <span class="badge"><span data-lang="en">B2B/B2C Sales</span><span data-lang="fr">Vente B2B/B2C</span></span>
+            <span class="badge"><span data-lang="en">Prospecting</span><span data-lang="fr">Prospection</span></span>
+            <span class="badge">CRM</span>
+            <span class="badge"><span data-lang="en">Client Relationship Management</span><span data-lang="fr">Gestion relation client</span></span>
+            <span class="badge"><span data-lang="en">Objection Handling</span><span data-lang="fr">Traitement des objections</span></span>
+            <span class="badge"><span data-lang="en">Customer Support</span><span data-lang="fr">Support client</span></span>
+          </div>
+        </div>
+        <div class="badge-group rv rv-r">
+          <h4>📣 <span data-lang="en">Marketing & Digital</span><span data-lang="fr">Marketing & Digital</span></h4>
+          <div class="badges">
+            <span class="badge">SEO</span>
+            <span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googleads/4285F4" width="13" height="13" loading="lazy"> Google Ads</span>
+            <span class="badge"><span data-lang="en">Digital Campaigns</span><span data-lang="fr">Campagnes digitales</span></span>
+            <span class="badge"><span data-lang="en">Content Creation</span><span data-lang="fr">Création de contenu</span></span>
+            <span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googleanalytics/E37400" width="13" height="13" loading="lazy"> Analytics</span>
+          </div>
+        </div>
+        <div class="badge-group rv rv-l">
+          <h4>🛠️ <span data-lang="en">Tools</span><span data-lang="fr">Outils</span></h4>
+          <div class="badges">
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/wordpress/21759B" width="13" height="13" loading="lazy"> WordPress</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/prestashop/DF0067" width="13" height="13" loading="lazy"> PrestaShop</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/microsoftoffice/D83B01" width="13" height="13" loading="lazy"> Microsoft Office</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/canva/00C4CC" width="13" height="13" loading="lazy"> Canva</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><i data-feather="zap" style="width:13px;height:13px;vertical-align:middle;"></i> Cursor AI</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googlemaps/4285F4" width="13" height="13" loading="lazy"> Google Maps</span>
+          </div>
+        </div>
+        <div class="badge-group rv rv-r">
+          <h4>🌍 <span data-lang="en">Languages</span><span data-lang="fr">Langues</span></h4>
+          <div class="badges">
+            <span class="badge v">🇫🇷 French — <span data-lang="en">Native</span><span data-lang="fr">Natif</span></span>
+            <span class="badge v">🇬🇧 English — C1</span>
+            <span class="badge v">🇩🇪 German — B2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. EXPERIENCE ==================== -->
+  <section id="xp">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-en="Professional Experience." data-text-fr="Expérience professionnelle.">Professional Experience<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">Roles, responsibilities and hands-on experience across operations, sales and digital environments.</span><span data-lang="fr">Rôles, responsabilités et expérience concrète dans les opérations, la vente et les environnements digitaux.</span></p>
+      <div class="tl" id="tl">
+        <div class="tl-line"></div>
+        <div class="tl-fill" id="tlFill"></div>
+
+        <!-- Cognizant -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="exp-c">
+            <div class="exp-meta">
+              <span class="exp-date"><span data-lang="en">Feb 2025 – Present</span><span data-lang="fr">Fév 2025 – Présent</span></span>
+              <span class="exp-tag current"><span data-lang="en">Current</span><span data-lang="fr">En poste</span></span>
+            </div>
+            <p class="exp-co">Cognizant</p>
+            <p class="exp-role"><span data-lang="en">Google Maps Moderator</span><span data-lang="fr">Modérateur Google Maps</span></p>
+            <p class="exp-loc"><span data-lang="en">📍 Dublin, Ireland</span><span data-lang="fr">📍 Dublin, Irlande</span></p>
+            <ul class="exp-ul">
+              <li><span data-lang="en">Moderation and verification of business information within the Google Maps ecosystem</span><span data-lang="fr">Modération et vérification des informations d'entreprises dans l'écosystème Google Maps</span></li>
+              <li><span data-lang="en">Quality assurance and accuracy checks across digital content</span><span data-lang="fr">Contrôle qualité et vérification de l'exactitude des contenus digitaux</span></li>
+              <li><span data-lang="en">Collaboration with internal teams to maintain process quality</span><span data-lang="fr">Collaboration avec les équipes internes pour maintenir la qualité des processus</span></li>
+              <li><span data-lang="en">Support and communication in a fast-paced operational environment</span><span data-lang="fr">Support et communication dans un environnement opérationnel dynamique</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- iRepair -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="exp-c">
+            <div class="exp-meta">
+              <span class="exp-date">2023 – 2024</span>
+            </div>
+            <p class="exp-co">iRepair</p>
+            <p class="exp-role"><span data-lang="en">Store Manager & Sales Advisor</span><span data-lang="fr">Responsable Magasin & Conseiller Vente</span></p>
+            <p class="exp-loc">📍 Strasbourg, France</p>
+            <ul class="exp-ul">
+              <li><span data-lang="en">Managed day-to-day store operations in a customer-facing retail environment</span><span data-lang="fr">Gestion des opérations quotidiennes du magasin dans un environnement retail orienté client</span></li>
+              <li><span data-lang="en">Advised customers on tech products and services with a personalised sales approach</span><span data-lang="fr">Conseil client sur les produits et services tech avec une approche de vente personnalisée</span></li>
+              <li><span data-lang="en">Supported team coordination and store organisation</span><span data-lang="fr">Appui à la coordination d'équipe et à l'organisation du point de vente</span></li>
+              <li><span data-lang="en">Combined commercial responsibilities with work-study academic training in commerce</span><span data-lang="fr">Responsabilités commerciales combinées à une formation en alternance en commerce</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- YouScale -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="exp-c">
+            <div class="exp-meta">
+              <span class="exp-date">2022 – 2024</span>
+            </div>
+            <p class="exp-co">YouScale</p>
+            <p class="exp-role"><span data-lang="en">Junior Consultant</span><span data-lang="fr">Consultant junior</span></p>
+            <p class="exp-loc">📍 Strasbourg</p>
+            <ul class="exp-ul">
+              <li><span data-lang="en">Conducted market research and B2B prospecting across several sectors</span><span data-lang="fr">Réalisation d'études de marché et de prospection B2B dans plusieurs secteurs</span></li>
+              <li><span data-lang="en">Supported lead generation, qualification and competitive analysis</span><span data-lang="fr">Appui à la génération de leads, qualification et analyse concurrentielle</span></li>
+              <li><span data-lang="en">Contributed to business development projects and client coordination</span><span data-lang="fr">Contribution à des projets de développement commercial et coordination client</span></li>
+              <li><span data-lang="en">Developed practical consulting experience through field assignments and applied business work</span><span data-lang="fr">Développement d'une expérience concrète en conseil via des missions terrain et des projets business appliqués</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. PASSIONS & INTERESTS (hidden — pro version) ==================== -->
+  <section id="passions" style="display:none">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-en="Passions & Interests." data-text-fr="Passions & centres d'intérêt.">Passions & Interests<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">What I track, consume, and geek out on — markets to matchdays.</span><span data-lang="fr">Ce que je suis, ce que je consomme, ce qui me passionne — des marchés aux terrains.</span></p>
+      <div class="read-grid">
+        <div class="read-card rv rv-up">
+          <span class="read-badge">ACTIVE</span>
+          <div class="read-icon">📊</div>
+          <h4><span data-lang="en">Markets & Crypto</span><span data-lang="fr">Marchés & Crypto</span></h4>
+          <p class="read-meta-lab"><span data-lang="en">Tools & resources</span><span data-lang="fr">Outils & ressources</span></p>
+          <ul>
+            <li>X (Twitter)</li><li>Simply Wall St</li><li>Polymarket</li><li>Perplexity</li><li>CoinMarketCap</li><li>DeFiLlama</li><li>Aave</li><li>Morpho</li><li>Pendle</li>
+          </ul>
+          <p class="read-tagline"><span data-lang="en">"Bitcoin opens your mind."</span><span data-lang="fr">« Le Bitcoin ouvre l'esprit. »</span></p>
+        </div>
+        <div class="read-card read-card--accent-p rv rv-up">
+          <span class="read-badge">ACTIVE</span>
+          <div class="read-icon">🌍</div>
+          <h4><span data-lang="en">Geopolitics & Macro</span><span data-lang="fr">Géopolitique & Macro</span></h4>
+          <p class="read-meta-lab"><span data-lang="en">Topics</span><span data-lang="fr">Sujets</span></p>
+          <ul>
+            <li><span data-lang="en">Dedollarization & BRICS</span><span data-lang="fr">La dédollarisation et l'essor des BRICS</span></li>
+            <li><span data-lang="en">Global trade routes</span><span data-lang="fr">Les routes commerciales mondiales</span></li>
+            <li><span data-lang="en">Tech economic war</span><span data-lang="fr">La guerre économique technologique</span></li>
+            <li><span data-lang="en">Global rearmament</span><span data-lang="fr">Le réarmement mondial</span></li>
+            <li><span data-lang="en">Gold & central bank reserves</span><span data-lang="fr">L'or et les réserves des banques centrales</span></li>
+            <li><span data-lang="en">Energy transition as power</span><span data-lang="fr">La transition énergétique comme outil de pouvoir</span></li>
+            <li><span data-lang="en">Central banks & monetary policy</span><span data-lang="fr">Les banques centrales et la politique monétaire</span></li>
+          </ul>
+          <p class="read-tagline"><span data-lang="en">"Understanding power means understanding the world."</span><span data-lang="fr">« Comprendre le pouvoir, c'est comprendre le monde. »</span></p>
+        </div>
+        <div class="read-card rv rv-up">
+          <span class="read-badge">ACTIVE</span>
+          <div class="read-icon read-icon--logo"><img src="../assets/rcs-strasbourg.png" alt="Racing Club de Strasbourg Alsace" width="40" height="40" loading="lazy"></div>
+          <h4><span data-lang="en">Football & Stories</span><span data-lang="fr">Football & Histoires</span></h4>
+          <p class="read-meta-lab"><span data-lang="en">Tools & resources</span><span data-lang="fr">Outils & ressources</span></p>
+          <ul>
+            <li>FotMob</li><li>WhoScored</li><li>FBref</li><li>YouTube</li>
+          </ul>
+          <p class="read-details"><span data-lang="en">Tactical analysis & xG — supporter of RC Strasbourg Alsace & the Premier League.</span><span data-lang="fr">Analyse tactique & xG — supporter du RC Strasbourg Alsace & de la Premier League.</span></p>
+          <p class="read-tagline"><span data-lang="en">"Football is chess at 90 minutes per game."</span><span data-lang="fr">« Le football, c'est les échecs en 90 minutes par match. »</span></p>
+        </div>
+        <div class="read-card read-card--accent-p rv rv-up">
+          <span class="read-badge">ACTIVE</span>
+          <div class="read-icon">🤖</div>
+          <h4>Tech & AI</h4>
+          <p class="read-meta-lab"><span data-lang="en">Tools & resources</span><span data-lang="fr">Outils & ressources</span></p>
+          <ul>
+            <li>Cursor AI</li><li>Perplexity</li><li>Claude</li><li>Grok</li><li>ChatGPT</li>
+          </ul>
+          <p class="read-details"><span data-lang="en">LLM development, prompt engineering — tech enthusiast since childhood.</span><span data-lang="fr">Développement LLM, prompt engineering — passionné de tech depuis l'enfance.</span></p>
+          <p class="read-tagline"><span data-lang="en">"Technology is not a tool. It's a way of thinking."</span><span data-lang="fr">« La technologie n'est pas un outil. C'est une façon de penser. »</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. SELECTED WORK ==================== -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-en="Selected Work." data-text-fr="Réalisations.">Selected Work<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">A few selected projects and practical initiatives across web, CRM and digital workflows.</span><span data-lang="fr">Quelques projets et initiatives concrètes autour du web, du CRM et des workflows digitaux.</span></p>
+
+      <div class="portfolio-projects rv rv-up">
+        <div class="sw-grid">
+
+          <div class="sw-card rv rv-up">
+            <div class="sw-icon">🌐</div>
+            <h4><span data-lang="en">Personal Portfolio Website</span><span data-lang="fr">Site portfolio personnel</span></h4>
+            <p><span data-lang="en">Designed and built a personal portfolio website using modern AI-assisted workflows and front-end tools. The project includes responsive design, dark mode, bilingual content and structured sections focused on identity, experience and contact.</span><span data-lang="fr">Conception et développement d'un site portfolio personnel via des workflows assistés par IA et des outils front-end modernes. Comprend un design responsive, le dark mode, un contenu bilingue et des sections structurées autour de l'identité, l'expérience et le contact.</span></p>
+            <div class="sw-tags">
+              <span class="badge">HTML/CSS</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge o">Cursor AI</span>
+              <span class="badge o">Vercel</span>
+            </div>
+          </div>
+
+          <div class="sw-card rv rv-up">
+            <div class="sw-icon">🤖</div>
+            <h4><span data-lang="en">CRM & AI Workflow Exploration</span><span data-lang="fr">Exploration CRM & workflows IA</span></h4>
+            <p><span data-lang="en">Explored practical uses of AI tools for CRM support, prospecting workflows, client follow-up and productivity improvement. Focused on identifying simple and useful use cases rather than unnecessary complexity.</span><span data-lang="fr">Exploration d'usages concrets des outils IA pour le support CRM, les workflows de prospection, le suivi client et l'amélioration de la productivité. Priorité aux cas d'usage simples et utiles plutôt qu'à la complexité inutile.</span></p>
+            <div class="sw-tags">
+              <span class="badge">CRM</span>
+              <span class="badge o">AI Tools</span>
+              <span class="badge o">Automation</span>
+              <span class="badge">Productivity</span>
+            </div>
+          </div>
+
+          <div class="sw-card rv rv-up">
+            <div class="sw-icon">📊</div>
+            <h4><span data-lang="en">Digital Research & Business Analysis</span><span data-lang="fr">Recherche digitale & analyse business</span></h4>
+            <p><span data-lang="en">Worked on research-driven assignments involving market analysis, B2B prospecting, lead qualification and business-oriented summaries. Strong focus on synthesis, clarity and actionable insights.</span><span data-lang="fr">Missions orientées recherche impliquant de l'analyse de marché, de la prospection B2B, de la qualification de leads et des synthèses business. Fort accent sur la clarté, la synthèse et les insights actionnables.</span></p>
+            <div class="sw-tags">
+              <span class="badge">Research</span>
+              <span class="badge">B2B</span>
+              <span class="badge o">Lead Generation</span>
+              <span class="badge">Analysis</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. SERVICES ==================== -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-en="How I Can Help." data-text-fr="Comment je peux aider.">How I Can Help<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">Ways I can contribute — whether in a role, a project or a short-term mission.</span><span data-lang="fr">Façons dont je peux contribuer — dans un poste, un projet ou une mission courte.</span></p>
+      <div class="srv-grid">
+
+        <div class="srv-card green rv rv-up">
+          <div class="srv-icon">🤝</div>
+          <h3><span data-lang="en">CRM & Sales Support</span><span data-lang="fr">Support CRM & Vente</span></h3>
+          <p><span data-lang="en">Help with CRM setup, client follow-up processes, prospecting workflows and sales coordination.</span><span data-lang="fr">Aide à la mise en place du CRM, au suivi client, aux workflows de prospection et à la coordination commerciale.</span></p>
+          <a href="#contact" class="srv-btn green"><span data-lang="en">Get in touch</span><span data-lang="fr">Me contacter</span> →</a>
+        </div>
+
+        <div class="srv-card orange rv rv-up">
+          <div class="srv-icon">📣</div>
+          <h3><span data-lang="en">Marketing & Digital Operations</span><span data-lang="fr">Marketing & Opérations digitales</span></h3>
+          <p><span data-lang="en">Support on content, campaigns, website updates and day-to-day digital marketing tasks.</span><span data-lang="fr">Support sur le contenu, les campagnes, les mises à jour de sites et les tâches marketing digitales du quotidien.</span></p>
+          <a href="#contact" class="srv-btn orange"><span data-lang="en">Get in touch</span><span data-lang="fr">Me contacter</span> →</a>
+        </div>
+
+        <div class="srv-card violet rv rv-up">
+          <div class="srv-icon">💻</div>
+          <h3><span data-lang="en">Web Projects & AI-assisted Execution</span><span data-lang="fr">Projets web & exécution assistée par IA</span></h3>
+          <p><span data-lang="en">Building or improving simple websites, landing pages and portfolios using AI-assisted workflows and front-end tools.</span><span data-lang="fr">Création ou amélioration de sites simples, landing pages et portfolios via des outils front-end et des workflows assistés par IA.</span></p>
+          <a href="#contact" class="srv-btn violet"><span data-lang="en">Get in touch</span><span data-lang="fr">Me contacter</span> →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 9. CONTACT ==================== -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-en="Contact." data-text-fr="Contact.">Contact<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">Open to new opportunities — let's have a conversation.</span><span data-lang="fr">Ouvert aux nouvelles opportunités — parlons-en.</span></p>
+      <div class="ct-simple rv rv-up">
+        <div class="ct-avail"><span class="pulse"></span> <span data-lang="en">Currently open to new roles</span><span data-lang="fr">Actuellement disponible</span></div>
+        <p class="ct-lead"><span data-lang="en">Happy to connect — whether it's about a role, a project or just an intro. A quick call or an email works best.</span><span data-lang="fr">N'hésitez pas à me contacter — pour un poste, un projet ou simplement échanger. Un appel ou un email, c'est parfait.</span></p>
+        <div class="ct-actions">
+          <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3NERT4c8yyP5FfGpZGEWmvKJL31Ja7Yabag5zu5e-FAmvGCjv10j7ApZVjxvvdFbA75M3zj3Qy?gv=true" target="_blank" rel="noopener noreferrer" class="btn btn-p"><i data-feather="calendar" style="width:16px;height:16px"></i> <span data-lang="en">Book a call</span><span data-lang="fr">Réserver un rendez-vous</span></a>
+          <a href="mailto:elithisfelix@gmail.com" class="btn btn-o"><i data-feather="mail" style="width:16px;height:16px"></i> elithisfelix@gmail.com</a>
+        </div>
+        <div class="ct-links ct-links-row">
+          <a href="https://www.linkedin.com/in/felix-perrault/" target="_blank" rel="noopener" class="ct-link"><i data-feather="linkedin"></i>LinkedIn</a>
+          <a href="https://x.com/gifizix" target="_blank" rel="noopener" class="ct-link"><i data-feather="twitter"></i>X (Twitter)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 10. FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <p class="ft-name">Felix Perrault</p>
+      <p class="ft-role"><span data-lang="en">Sales · Marketing · CRM — Dublin</span><span data-lang="fr">Vente · Marketing · CRM — Dublin</span></p>
+      <div class="ft-meta">
+        <span><i data-feather="map-pin"></i> <span data-lang="en">Dublin, Ireland</span><span data-lang="fr">Dublin, Irlande</span></span>
+        <span class="ft-avail"><span data-lang="en">Open to new roles</span><span data-lang="fr">Disponible</span></span>
+        <a href="mailto:elithisfelix@gmail.com"><i data-feather="mail"></i> elithisfelix@gmail.com</a>
+        <a href="https://www.linkedin.com/in/felix-perrault/" target="_blank" rel="noopener"><i data-feather="linkedin"></i> LinkedIn</a>
+      </div>
+      <p class="ft-copy">© 2026 Felix Perrault</p>
+    </div>
+  </footer>
+
+  <button class="btt" id="btt" aria-label="Top"><i data-feather="arrow-up"></i></button>
+
+  
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
