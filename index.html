@@ -217,6 +217,12 @@
     .memo-head{color:var(--accent);font-weight:700;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
     .memo p{margin-bottom:8px}
     .memo strong{color:var(--text)}
+
+    .about-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:980px;margin:0 auto 28px}
+    .about-wrap p{color:var(--muted);line-height:1.75;margin:0 0 14px}
+    .about-wrap p:last-of-type{margin-bottom:18px}
+    .about-hi{display:flex;flex-wrap:wrap;gap:8px}
+    .about-hi .badge{background:rgba(0,255,136,0.08);border-color:rgba(0,255,136,0.18)}
     .stat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
     .stat-c{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-align:center;transition:border-color .3s,transform .3s;display:flex;flex-direction:column;align-items:center;gap:6px}
     .stat-c:hover{border-color:var(--accent);transform:translateY(-3px)}
@@ -268,9 +274,10 @@
     .tl-item:nth-child(even) .exp-c{transform:translateX(20px)}
     .tl-item.vis .exp-c{opacity:1;transform:translate(0)}
     .exp-c:hover{border-color:var(--accent);box-shadow:0 8px 32px var(--shadow)}
-    .exp-status{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-    .exp-status.active{color:#00ff87}
-    .exp-status.closed{color:var(--muted)}
+    .exp-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+    .exp-date{font-family:'Space Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.5px}
+    .exp-tag{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:50px;font-weight:700}
+    .exp-tag.current{background:rgba(0,255,135,.12);color:#00ff87;border:1px solid rgba(0,255,135,.2)}
     .exp-co{font-size:1.1rem;font-weight:700;margin-bottom:2px}
     .exp-role{color:var(--accent);font-weight:600;font-size:.92rem;margin-bottom:4px}
     .tl-item:nth-child(odd) .exp-role:has(img){display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:4px}
@@ -329,6 +336,17 @@
     .pf-b{padding:5px 12px;border-radius:50px;font-size:.72rem;font-weight:500;background:var(--card);border:1px solid var(--border);color:var(--muted)}
     .bullish{color:#00ff87;border-color:rgba(0,255,135,.3);animation:tickBl 2s ease-in-out infinite}
     .pf-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+
+    /* Selected Work */
+    .sw-heading{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin:56px 0 8px}
+    .sw-sub{color:var(--muted);font-size:.9rem;margin-bottom:28px;max-width:600px}
+    .sw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .sw-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;display:flex;flex-direction:column;gap:10px}
+    .sw-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 8px 32px var(--shadow)}
+    .sw-icon{font-size:1.8rem}
+    .sw-card h4{font-size:1rem;font-weight:700;color:var(--text);margin:0}
+    .sw-card p{color:var(--muted);font-size:.87rem;line-height:1.65;margin:0;flex:1}
+    .sw-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
     .pf-sc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center;transition:all .3s}
     .pf-sc:hover{border-color:var(--accent);transform:translateY(-2px)}
     .pf-sv{font-family:'Space Mono',monospace;font-size:1.2rem;font-weight:700;color:var(--accent)}
@@ -590,33 +608,18 @@
   <!-- ==================== 2. ABOUT ==================== -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title rv rv-up" data-text-en="About — Investor Thesis." data-text-fr="À propos — Thèse d'investissement.">About — Investor Thesis<span class="dot">.</span></h2>
-      <p class="section-sub rv rv-up"><span data-lang="en">How I think about career, skills and deployment.</span><span data-lang="fr">Comment je pense carrière, compétences et déploiement.</span></p>
-      <div class="memo rv rv-up">
-        <div class="memo-head">[MEMO — FELIX PERRAULT — ANALYST]</div>
-        <p><strong><span data-lang="en">Education :</span><span data-lang="fr">Formation :</span></strong> <span data-lang="en">Bachelor's degree in Commerce (2022–2024) — work-study apprenticeship with the companies I worked for.</span><span data-lang="fr">Diplôme de Bachelor en commerce en alternance entre 2022 et 2024 avec les entreprises dans lesquelles j'ai travaillé.</span></p>
-        <p><strong><span data-lang="en">Skills under construction</span><span data-lang="fr">Compétences en construction</span></strong> <span data-lang="en">— AI, code, and leveling up on markets.</span><span data-lang="fr">— IA, code, et montée en compétences sur les marchés.</span></p>
-        <p><strong>5+ <span data-lang="en">years</span><span data-lang="fr">ans</span></strong> <span data-lang="en">B2B/B2C experience. Based in Dublin. Thinking globally.</span><span data-lang="fr">d'expérience B2B/B2C. Basé à Dublin. Vision globale.</span></p>
-      </div>
-      <div class="stat-cards rv rv-up">
-        <div class="stat-c"><i data-feather="briefcase" class="stat-icon" style="width:22px;height:22px;"></i><div class="stat-num" data-target="5">0</div><div class="stat-lab"><span data-lang="en">Years of professional experience</span><span data-lang="fr">5 ans d'expérience professionnelle</span></div></div>
-        <div class="stat-c"><i data-feather="globe" class="stat-icon" style="width:22px;height:22px;"></i><div class="stat-num" data-target="3">0</div><div class="stat-lab"><span data-lang="en">Languages</span><span data-lang="fr">Langues</span></div></div>
-        <div class="stat-c"><i data-feather="map-pin" class="stat-icon" style="width:22px;height:22px;"></i><div class="stat-num" data-target="3">0</div><div class="stat-lab"><span data-lang="en">Countries lived in</span><span data-lang="fr">Pays habités</span></div></div>
-      </div>
-      <div class="about-lang-block rv rv-up">
-        <div class="lang-bars">
-          <div class="lang-item">
-            <div class="lang-head"><span>🇫🇷 Français</span><span class="lang-pct">Natif — 100%</span></div>
-            <div class="lang-bg"><div class="lang-fill" data-w="100"></div></div>
-          </div>
-          <div class="lang-item">
-            <div class="lang-head"><span>🇬🇧 English</span><span class="lang-pct">C1 — 85%</span></div>
-            <div class="lang-bg"><div class="lang-fill" data-w="85"></div></div>
-          </div>
-          <div class="lang-item">
-            <div class="lang-head"><span>🇩🇪 Deutsch</span><span class="lang-pct">B2 — 65%</span></div>
-            <div class="lang-bg"><div class="lang-fill" data-w="65"></div></div>
-          </div>
+      <h2 class="section-title rv rv-up" data-text-en="About." data-text-fr="À propos.">About<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">A multilingual business profile combining sales, marketing, CRM and digital tools.</span><span data-lang="fr">Un profil business multilingue qui combine vente, marketing, CRM et outils digitaux.</span></p>
+
+      <div class="about-wrap rv rv-up">
+        <p><span data-lang="en">I am a multilingual business and digital profile with experience across sales, customer relations, CRM and marketing environments. My background combines B2B/B2C exposure, operational work, client-facing responsibilities and a strong interest in digital tools, AI and performance.</span><span data-lang="fr">Je suis un profil business et digital multilingue avec une expérience en vente, relation client, CRM et environnements marketing. Mon parcours combine une exposition B2B/B2C, du terrain opérationnel, des responsabilités client-facing et un fort intérêt pour les outils digitaux, l’IA et la performance.</span></p>
+        <p><span data-lang="en">I work best in environments where communication, structure and adaptability matter. Based in Dublin, I am particularly interested in roles and projects involving marketing, CRM, business development, digital operations and growth-oriented problem solving.</span><span data-lang="fr">Je m’épanouis dans des environnements où la communication, la structure et l’adaptabilité comptent. Basé à Dublin, je m’intéresse particulièrement aux rôles et projets autour du marketing, du CRM, du business development, des opérations digitales et de la résolution de problèmes orientée croissance.</span></p>
+
+        <div class="about-hi" aria-label="Highlights">
+          <span class="badge">5+ years</span>
+          <span class="badge v">French native</span><span class="badge v">English C1</span><span class="badge v">German B2</span>
+          <span class="badge o">Based in Dublin</span>
+          <span class="badge">Sales</span><span class="badge">CRM</span><span class="badge">Marketing</span><span class="badge o">Digital tools</span>
         </div>
       </div>
     </div>
@@ -625,36 +628,48 @@
   <!-- ==================== 3. SKILLS ==================== -->
   <section id="skills">
     <div class="container">
-      <h2 class="section-title rv rv-up" data-text-en="Skills — Scout Report." data-text-fr="Compétences — Rapport de Scout.">Skills — Scout Report<span class="dot">.</span></h2>
-      <p class="section-sub rv rv-up"><span data-lang="en">Scouting data — strengths mapped.</span><span data-lang="fr">Données de scouting — forces cartographiées.</span></p>
-      <div class="radar-wrap rv rv-up">
-        <svg class="radar-svg" viewBox="0 0 320 320" id="radarSvg">
-          <g transform="translate(160,160)" id="radarG"></g>
-        </svg>
-        <div>
-          <p style="color:var(--muted);font-size:.88rem;margin-bottom:16px"><span data-lang="en">Six-axis assessment generated from real experience data. The polygon fills on scroll entry.</span><span data-lang="fr">Évaluation à 6 axes générée à partir de données réelles. Le polygone se remplit au scroll.</span></p>
-          <div style="display:flex;flex-wrap:wrap;gap:6px">
-            <span class="badge">Sales 80</span><span class="badge">Marketing 80</span><span class="badge">CRM 75</span>
-            <span class="badge o">Tech & AI 70</span><span class="badge v">Languages 80</span><span class="badge">Finance 75</span>
-          </div>
-        </div>
-      </div>
+      <h2 class="section-title rv rv-up" data-text-en="Core Skills." data-text-fr="Compétences clés.">Core Skills<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">A practical mix of sales, CRM, client communication and digital tools.</span><span data-lang="fr">Un mix concret de vente, CRM, communication client et outils digitaux.</span></p>
       <div class="badges-grid">
         <div class="badge-group rv rv-l">
-          <h4>💼 <span data-lang="en">Business</span><span data-lang="fr">Commerce</span></h4>
-          <div class="badges"><span class="badge">CRM</span><span class="badge"><span data-lang="en">B2B/B2C Prospecting</span><span data-lang="fr">Prospection B2B/B2C</span></span><span class="badge"><span data-lang="en">Sales Argumentation</span><span data-lang="fr">Argumentation</span></span><span class="badge"><span data-lang="en">Client Relations</span><span data-lang="fr">Gestion relation client</span></span></div>
+          <h4>💼 <span data-lang="en">Sales & CRM</span><span data-lang="fr">Vente & CRM</span></h4>
+          <div class="badges">
+            <span class="badge"><span data-lang="en">B2B/B2C Sales</span><span data-lang="fr">Vente B2B/B2C</span></span>
+            <span class="badge"><span data-lang="en">Prospecting</span><span data-lang="fr">Prospection</span></span>
+            <span class="badge">CRM</span>
+            <span class="badge"><span data-lang="en">Client Relationship Management</span><span data-lang="fr">Gestion relation client</span></span>
+            <span class="badge"><span data-lang="en">Objection Handling</span><span data-lang="fr">Traitement des objections</span></span>
+            <span class="badge"><span data-lang="en">Customer Support</span><span data-lang="fr">Support client</span></span>
+          </div>
         </div>
         <div class="badge-group rv rv-r">
-          <h4>📣 Marketing</h4>
-          <div class="badges"><span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googleads/4285F4" width="13" height="13" loading="lazy"> Google Ads</span><span class="badge">SEO</span><span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/canva/00C4CC" width="13" height="13" loading="lazy"> Canva</span><span class="badge"><span data-lang="en">Digital Campaigns</span><span data-lang="fr">Campagnes digitales</span></span><span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googleanalytics/E37400" width="13" height="13" loading="lazy"> Analytics</span></div>
+          <h4>📣 <span data-lang="en">Marketing & Digital</span><span data-lang="fr">Marketing & Digital</span></h4>
+          <div class="badges">
+            <span class="badge">SEO</span>
+            <span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googleads/4285F4" width="13" height="13" loading="lazy"> Google Ads</span>
+            <span class="badge"><span data-lang="en">Digital Campaigns</span><span data-lang="fr">Campagnes digitales</span></span>
+            <span class="badge"><span data-lang="en">Content Creation</span><span data-lang="fr">Création de contenu</span></span>
+            <span class="badge" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googleanalytics/E37400" width="13" height="13" loading="lazy"> Analytics</span>
+          </div>
         </div>
         <div class="badge-group rv rv-l">
           <h4>🛠️ <span data-lang="en">Tools</span><span data-lang="fr">Outils</span></h4>
-          <div class="badges"><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/wordpress/21759B" width="13" height="13" loading="lazy"> WordPress</span><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/prestashop/DF0067" width="13" height="13" loading="lazy"> PrestaShop</span><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/microsoftoffice/D83B01" width="13" height="13" loading="lazy"> Microsoft Office</span><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><i data-feather="zap" style="width:13px;height:13px;vertical-align:middle;"></i> Cursor AI</span><span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googlemaps/4285F4" width="13" height="13" loading="lazy"> Google Maps</span></div>
+          <div class="badges">
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/wordpress/21759B" width="13" height="13" loading="lazy"> WordPress</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/prestashop/DF0067" width="13" height="13" loading="lazy"> PrestaShop</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/microsoftoffice/D83B01" width="13" height="13" loading="lazy"> Microsoft Office</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/canva/00C4CC" width="13" height="13" loading="lazy"> Canva</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><i data-feather="zap" style="width:13px;height:13px;vertical-align:middle;"></i> Cursor AI</span>
+            <span class="badge o" style="display:inline-flex;align-items:center;gap:4px;"><img src="https://cdn.simpleicons.org/googlemaps/4285F4" width="13" height="13" loading="lazy"> Google Maps</span>
+          </div>
         </div>
         <div class="badge-group rv rv-r">
           <h4>🌍 <span data-lang="en">Languages</span><span data-lang="fr">Langues</span></h4>
-          <div class="badges"><span class="badge v">Français 🇫🇷</span><span class="badge v">English 🇬🇧 C1</span><span class="badge v">Deutsch 🇩🇪 B2</span></div>
+          <div class="badges">
+            <span class="badge v">🇫🇷 French — <span data-lang="en">Native</span><span data-lang="fr">Natif</span></span>
+            <span class="badge v">🇬🇧 English — C1</span>
+            <span class="badge v">🇩🇪 German — B2</span>
+          </div>
         </div>
       </div>
     </div>
@@ -663,59 +678,70 @@
   <!-- ==================== 4. EXPERIENCE ==================== -->
   <section id="xp">
     <div class="container">
-      <h2 class="section-title rv rv-up" data-text-en="Experience — Career P&L." data-text-fr="Expériences — P&L Carrière.">Experience — Career P&L<span class="dot">.</span></h2>
-      <p class="section-sub rv rv-up"><span data-lang="en">Positions opened, returns generated.</span><span data-lang="fr">Positions ouvertes, rendements générés.</span></p>
+      <h2 class="section-title rv rv-up" data-text-en="Professional Experience." data-text-fr="Expérience professionnelle.">Professional Experience<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up"><span data-lang="en">Roles, responsibilities and hands-on experience across operations, sales and digital environments.</span><span data-lang="fr">Rôles, responsabilités et expérience concrète dans les opérations, la vente et les environnements digitaux.</span></p>
       <div class="tl" id="tl">
         <div class="tl-line"></div>
         <div class="tl-fill" id="tlFill"></div>
+
+        <!-- Cognizant -->
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="exp-c">
-            <div class="exp-status active"><span data-lang="en">🟢 ACTIVE — COGNIZANT — DUBLIN — FEB. 2025 → PRESENT</span><span data-lang="fr">🟢 ACTIVE — COGNIZANT — DUBLIN — FÉV. 2025 → PRÉSENT</span></div>
+            <div class="exp-meta">
+              <span class="exp-date"><span data-lang="en">Feb 2025 – Present</span><span data-lang="fr">Fév 2025 – Présent</span></span>
+              <span class="exp-tag current"><span data-lang="en">Current</span><span data-lang="fr">En poste</span></span>
+            </div>
             <p class="exp-co">Cognizant</p>
-            <p class="exp-role"><img src="https://cdn.simpleicons.org/google/4285F4" width="14" height="14" alt="Google" loading="lazy" style="vertical-align:middle;">Google Maps Moderator</p>
+            <p class="exp-role"><span data-lang="en">Google Maps Moderator</span><span data-lang="fr">Modérateur Google Maps</span></p>
             <p class="exp-loc"><span data-lang="en">📍 Dublin, Ireland</span><span data-lang="fr">📍 Dublin, Irlande</span></p>
-            <p style="font-size:.82rem;color:var(--muted);margin-bottom:8px;font-style:italic"><span data-lang="en">Key returns :</span><span data-lang="fr">Rendements clés :</span></p>
             <ul class="exp-ul">
-              <li><span data-lang="en">Google ecosystem exposure & content moderation at scale</span><span data-lang="fr">Exposition à l'écosystème Google & modération de contenu à grande échelle</span></li>
-              <li><span data-lang="en">Cross-team collaboration & process optimization</span><span data-lang="fr">Collaboration inter-équipes & optimisation des processus</span></li>
-              <li><span data-lang="en">Business verification & quality assurance</span><span data-lang="fr">Vérification d'entreprises & assurance qualité</span></li>
+              <li><span data-lang="en">Moderation and verification of business information within the Google Maps ecosystem</span><span data-lang="fr">Modération et vérification des informations d'entreprises dans l'écosystème Google Maps</span></li>
+              <li><span data-lang="en">Quality assurance and accuracy checks across digital content</span><span data-lang="fr">Contrôle qualité et vérification de l'exactitude des contenus digitaux</span></li>
+              <li><span data-lang="en">Collaboration with internal teams to maintain process quality</span><span data-lang="fr">Collaboration avec les équipes internes pour maintenir la qualité des processus</span></li>
+              <li><span data-lang="en">Support and communication in a fast-paced operational environment</span><span data-lang="fr">Support et communication dans un environnement opérationnel dynamique</span></li>
             </ul>
           </div>
         </div>
+
+        <!-- iRepair -->
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="exp-c">
-            <div class="exp-status closed">✓ CLOSED — IREPAIR — STRASBOURG — 2023–2024</div>
+            <div class="exp-meta">
+              <span class="exp-date">2023 – 2024</span>
+            </div>
             <p class="exp-co">iRepair</p>
-            <p class="exp-role"><span data-lang="en">Store Manager & Sales Advisor · Work-study (Bachelor Commerce)</span><span data-lang="fr">Responsable Magasin & Conseiller Vente · Alternance (Bachelor Commerce)</span></p>
+            <p class="exp-role"><span data-lang="en">Store Manager & Sales Advisor</span><span data-lang="fr">Responsable Magasin & Conseiller Vente</span></p>
             <p class="exp-loc">📍 Strasbourg, France</p>
-            <p style="font-size:.82rem;color:var(--muted);margin-bottom:8px;font-style:italic"><span data-lang="en">Key returns :</span><span data-lang="fr">Rendements clés :</span></p>
             <ul class="exp-ul">
-              <li><span data-lang="en">Host company for the final year of my Bachelor in Commerce work-study (2023–2024): retail operations, sales floor and team context.</span><span data-lang="fr">Entreprise d'accueil pour la dernière année d'alternance du Bachelor commerce (2023–2024) : retail, point de vente et encadrement d'équipe.</span></li>
-              <li><span data-lang="en">Store P&L management & team leadership</span><span data-lang="fr">Gestion du P&L magasin & leadership d'équipe</span></li>
-              <li><span data-lang="en">Customer conversion & personalised advisory</span><span data-lang="fr">Conversion client & conseil personnalisé</span></li>
-              <li><span data-lang="en">Tech product sales & repair operations</span><span data-lang="fr">Vente de produits tech & opérations de réparation</span></li>
+              <li><span data-lang="en">Managed day-to-day store operations in a customer-facing retail environment</span><span data-lang="fr">Gestion des opérations quotidiennes du magasin dans un environnement retail orienté client</span></li>
+              <li><span data-lang="en">Advised customers on tech products and services with a personalised sales approach</span><span data-lang="fr">Conseil client sur les produits et services tech avec une approche de vente personnalisée</span></li>
+              <li><span data-lang="en">Supported team coordination and store organisation</span><span data-lang="fr">Appui à la coordination d'équipe et à l'organisation du point de vente</span></li>
+              <li><span data-lang="en">Combined commercial responsibilities with work-study academic training in commerce</span><span data-lang="fr">Responsabilités commerciales combinées à une formation en alternance en commerce</span></li>
             </ul>
           </div>
         </div>
+
+        <!-- YouScale -->
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="exp-c">
-            <div class="exp-status closed"><span data-lang="en">✓ CLOSED — YOUSCALE — STRASBOURG — 2022–2024</span><span data-lang="fr">✓ CLOSED — YOUSCALE — STRASBOURG — 2022–2024</span></div>
+            <div class="exp-meta">
+              <span class="exp-date">2022 – 2024</span>
+            </div>
             <p class="exp-co">YouScale</p>
             <p class="exp-role"><span data-lang="en">Junior Consultant</span><span data-lang="fr">Consultant junior</span></p>
-            <p style="color:var(--muted);font-size:.88rem;margin-bottom:4px;line-height:1.45"><span data-lang="en">Bachelor's in Commerce — work-study · Field missions & projects</span><span data-lang="fr">Bachelor Commerce — alternance · Missions terrain & projets</span></p>
-            <p class="exp-loc"><span data-lang="en">📍 Strasbourg</span><span data-lang="fr">📍 Strasbourg</span></p>
-            <p style="font-size:.82rem;color:var(--muted);margin-bottom:8px;font-style:italic"><span data-lang="en">Key returns :</span><span data-lang="fr">Rendements clés :</span></p>
+            <p class="exp-loc">📍 Strasbourg</p>
             <ul class="exp-ul">
-              <li><span data-lang="en">Work-study Bachelor in Commerce (2022–2024): alternating between school and partner companies, applying coursework to real client and sector assignments.</span><span data-lang="fr">Bachelor commerce en alternance (2022–2024) : rythme école / entreprise, mise en pratique des cours sur des missions clients et sectorielles concrètes.</span></li>
-              <li><span data-lang="en">Market analysis & B2B prospecting for SMEs, logistics and trade-show verticals; lead gen and qualification.</span><span data-lang="fr">Analyse de marché & prospection B2B (PME, logistique, salons) ; génération et qualification de leads.</span></li>
-              <li><span data-lang="en">Competitive benchmarking & business strategy support across several industries (reports, summaries, recommendations).</span><span data-lang="fr">Benchmark concurrentiel & appui stratégie sur plusieurs secteurs (notes, synthèses, préconisations).</span></li>
-              <li><span data-lang="en">Project follow-up, client coordination & onboarding materials for junior consultants joining the practice.</span><span data-lang="fr">Suivi de projets, coordination client & supports d'intégration pour les consultants juniors.</span></li>
+              <li><span data-lang="en">Conducted market research and B2B prospecting across several sectors</span><span data-lang="fr">Réalisation d'études de marché et de prospection B2B dans plusieurs secteurs</span></li>
+              <li><span data-lang="en">Supported lead generation, qualification and competitive analysis</span><span data-lang="fr">Appui à la génération de leads, qualification et analyse concurrentielle</span></li>
+              <li><span data-lang="en">Contributed to business development projects and client coordination</span><span data-lang="fr">Contribution à des projets de développement commercial et coordination client</span></li>
+              <li><span data-lang="en">Developed practical consulting experience through field assignments and applied business work</span><span data-lang="fr">Développement d'une expérience concrète en conseil via des missions terrain et des projets business appliqués</span></li>
             </ul>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -806,32 +832,44 @@
         <div class="pf-sc"><div class="pf-sv mono">5Y+</div><div class="pf-sl">Horizon</div></div>
       </div>
 
-      <div class="portfolio-projects">
-        <h3 style="color: var(--accent); margin: 60px 0 30px; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 2px;">Projets & Réalisations</h3>
-        
-        <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-          
-          <!-- Projet 1 -->
-          <div class="project-card" style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: transform 0.3s ease, border-color 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--accent)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='var(--border)'">
-            <div style="font-size: 2rem; margin-bottom: 12px;">🌐</div>
-            <h4 style="color: var(--text); margin-bottom: 8px; font-size: 1.05rem;">Portfolio Personnel</h4>
-            <p style="color: var(--muted); font-size: 0.88rem; line-height: 1.6;">Site construit avec Cursor AI & HTML/CSS/JS. Dark mode, multilingue FR/EN, animations, sections interactives.</p>
-            <div style="margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap;">
-              <span style="background: rgba(0,255,136,0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">HTML/CSS</span>
-              <span style="background: rgba(0,255,136,0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">Cursor AI</span>
-              <span style="background: rgba(0,255,136,0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">Vercel</span>
+      <div class="portfolio-projects rv rv-up">
+        <h3 class="sw-heading"><span data-lang="en">Selected Work</span><span data-lang="fr">Réalisations</span></h3>
+        <p class="sw-sub"><span data-lang="en">A few selected projects and practical initiatives across web, CRM and digital workflows.</span><span data-lang="fr">Quelques projets et initiatives concrètes autour du web, du CRM et des workflows digitaux.</span></p>
+        <div class="sw-grid">
+
+          <div class="sw-card rv rv-up">
+            <div class="sw-icon">🌐</div>
+            <h4><span data-lang="en">Personal Portfolio Website</span><span data-lang="fr">Site portfolio personnel</span></h4>
+            <p><span data-lang="en">Designed and built a personal portfolio website using modern AI-assisted workflows and front-end tools. The project includes responsive design, dark mode, bilingual content and structured sections focused on identity, experience and contact.</span><span data-lang="fr">Conception et développement d'un site portfolio personnel via des workflows assistés par IA et des outils front-end modernes. Comprend un design responsive, le dark mode, un contenu bilingue et des sections structurées autour de l'identité, l'expérience et le contact.</span></p>
+            <div class="sw-tags">
+              <span class="badge">HTML/CSS</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge o">Cursor AI</span>
+              <span class="badge o">Vercel</span>
             </div>
           </div>
 
-          <!-- Projet 3 -->
-          <div class="project-card" style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: transform 0.3s ease, border-color 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--accent)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='var(--border)'">
-            <div style="font-size: 2rem; margin-bottom: 12px;">🤖</div>
-            <h4 style="color: var(--text); margin-bottom: 8px; font-size: 1.05rem;">Automatisation CRM & AI</h4>
-            <p style="color: var(--muted); font-size: 0.88rem; line-height: 1.6;">Exploration et mise en place d'outils AI pour l'automatisation des processus CRM, prospection et suivi client.</p>
-            <div style="margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap;">
-              <span style="background: rgba(0,255,136,0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">CRM</span>
-              <span style="background: rgba(0,255,136,0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">AI Tools</span>
-              <span style="background: rgba(0,255,136,0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;">Automation</span>
+          <div class="sw-card rv rv-up">
+            <div class="sw-icon">🤖</div>
+            <h4><span data-lang="en">CRM & AI Workflow Exploration</span><span data-lang="fr">Exploration CRM & workflows IA</span></h4>
+            <p><span data-lang="en">Explored practical uses of AI tools for CRM support, prospecting workflows, client follow-up and productivity improvement. Focused on identifying simple and useful use cases rather than unnecessary complexity.</span><span data-lang="fr">Exploration d'usages concrets des outils IA pour le support CRM, les workflows de prospection, le suivi client et l'amélioration de la productivité. Priorité aux cas d'usage simples et utiles plutôt qu'à la complexité inutile.</span></p>
+            <div class="sw-tags">
+              <span class="badge">CRM</span>
+              <span class="badge o">AI Tools</span>
+              <span class="badge o">Automation</span>
+              <span class="badge">Productivity</span>
+            </div>
+          </div>
+
+          <div class="sw-card rv rv-up">
+            <div class="sw-icon">📊</div>
+            <h4><span data-lang="en">Digital Research & Business Analysis</span><span data-lang="fr">Recherche digitale & analyse business</span></h4>
+            <p><span data-lang="en">Worked on research-driven assignments involving market analysis, B2B prospecting, lead qualification and business-oriented summaries. Strong focus on synthesis, clarity and actionable insights.</span><span data-lang="fr">Missions orientées recherche impliquant de l'analyse de marché, de la prospection B2B, de la qualification de leads et des synthèses business. Fort accent sur la clarté, la synthèse et les insights actionnables.</span></p>
+            <div class="sw-tags">
+              <span class="badge">Research</span>
+              <span class="badge">B2B</span>
+              <span class="badge o">Lead Generation</span>
+              <span class="badge">Analysis</span>
             </div>
           </div>
 
@@ -1007,21 +1045,6 @@
       document.querySelectorAll('.pf-legend .leg-bar').forEach(b=>legBarObs.observe(b));
     })();
 
-    /* ============ RADAR CHART SVG ============ */
-    (function(){
-      const vals=[80,80,75,70,80,75];
-      const labels=['Sales','Marketing','CRM','Tech & AI','Languages','Finance'];
-      const g=document.getElementById('radarG');
-      const R=120,n=6;
-      function pt(i,r){const a=Math.PI*2*i/n-Math.PI/2;return[Math.cos(a)*r,Math.sin(a)*r]}
-      [.33,.66,1].forEach(s=>{let d='';for(let i=0;i<n;i++){const[x,y]=pt(i,R*s);d+=(i?'L':'M')+x+','+y}d+='Z';const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);p.setAttribute('class','radar-grid');g.appendChild(p)});
-      for(let i=0;i<n;i++){const[x,y]=pt(i,R);const l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',0);l.setAttribute('y1',0);l.setAttribute('x2',x);l.setAttribute('y2',y);l.setAttribute('class','radar-axis');g.appendChild(l);const[lx,ly]=pt(i,R+18);const t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('x',lx);t.setAttribute('y',ly+4);t.setAttribute('class','radar-label');t.textContent=labels[i];g.appendChild(t)}
-      let d='';vals.forEach((v,i)=>{const[x,y]=pt(i,R*v/100);d+=(i?'L':'M')+x+','+y});d+='Z';
-      const poly=document.createElementNS('http://www.w3.org/2000/svg','path');poly.setAttribute('d',d);poly.setAttribute('class','radar-poly');poly.id='radarPoly';g.appendChild(poly);
-      const len=poly.getTotalLength();poly.style.strokeDasharray=len;poly.style.strokeDashoffset=len;
-      const rObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){poly.style.strokeDashoffset='0';rObs.unobserve(e.target)}})},{threshold:.4});
-      rObs.observe(document.getElementById('radarSvg'));
-    })();
 
     /* ============ TIMELINE ============ */
     const tlItems=document.querySelectorAll('.tl-item'),tlFill=document.getElementById('tlFill'),tlEl=document.getElementById('tl');
