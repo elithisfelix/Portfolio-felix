@@ -156,11 +156,12 @@
       z-index: 0;
     }
     .hero-left{max-width:640px}
-    .hero h1{font-size:clamp(2.6rem,6vw,4.5rem);font-weight:700;line-height:1.05;letter-spacing:-2px;margin-bottom:14px;background:linear-gradient(90deg,#00ff87,#a855f7,#00ff87);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:hGrad 4s linear infinite}
+    .hero h1{font-size:clamp(2.1rem,4.8vw,3.7rem);font-weight:700;line-height:1.08;letter-spacing:-1.6px;margin-bottom:12px;background:linear-gradient(90deg,#00ff87,#a855f7,#00ff87);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:hGrad 4s linear infinite}
     @keyframes hGrad{0%{background-position:0% 50%}100%{background-position:200% 50%}}
-    .hero-tag{font-size:clamp(1rem,2vw,1.25rem);color:var(--muted);margin-bottom:12px}
+    .hero-tag{font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
+    .hero-intro{font-size:1rem;line-height:1.7;color:var(--muted);margin-bottom:26px;max-width:560px}
     .hero-quote{font-size:.85rem;color:var(--muted2);font-style:italic;border-left:2px solid var(--accent);padding-left:14px;margin-bottom:20px;max-width:460px}
-    .hero-typing{font-size:clamp(1rem,2vw,1.2rem);color:var(--accent);font-weight:500;min-height:1.8em;margin-bottom:6px;font-family:'Space Grotesk',sans-serif}
+    .hero-typing{font-size:clamp(.98rem,2vw,1.15rem);color:var(--accent);font-weight:500;min-height:1.8em;margin-bottom:14px;font-family:'Space Grotesk',sans-serif}
     .cblink{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:2px;vertical-align:text-bottom;animation:bl 1s step-end infinite}
     @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
     .hero-loc{color:var(--muted);font-size:.92rem;margin-bottom:20px}
@@ -272,6 +273,7 @@
     .exp-status.closed{color:var(--muted)}
     .exp-co{font-size:1.1rem;font-weight:700;margin-bottom:2px}
     .exp-role{color:var(--accent);font-weight:600;font-size:.92rem;margin-bottom:4px}
+    .tl-item:nth-child(odd) .exp-role:has(img){display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:4px}
     .exp-loc{color:var(--muted);font-size:.82rem;margin-bottom:12px}
     .exp-ul{list-style:none;display:flex;flex-direction:column;gap:6px}
     .exp-ul li{color:var(--muted);font-size:.88rem;padding-left:18px;position:relative}
@@ -467,6 +469,7 @@
       .tl-dot,.tl-item:nth-child(odd) .tl-dot,.tl-item:nth-child(even) .tl-dot{left:0;right:auto}
       .tl-item:nth-child(odd) .exp-c,.tl-item:nth-child(even) .exp-c{transform:translateY(20px)}
       .tl-item.vis .exp-c{transform:translate(0)}
+      .tl-item:nth-child(odd) .exp-role:has(img){justify-content:flex-start}
       .radar-wrap{flex-direction:column}
       .radar-svg{width:260px;height:260px}
       section{padding:72px 0;overflow-x:hidden}
@@ -564,20 +567,13 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-left">
-          <h1>Felix Perrault</h1>
-          <p class="hero-tag"><span data-lang="en">Markets. Geopolitics. Tech. Sport. Everything is a system.</span><span data-lang="fr">Marchés. Géopolitique. Tech. Sport. Tout est un système.</span></p>
-          <blockquote class="hero-quote">"History doesn't repeat itself, but it often rhymes." — Mark Twain</blockquote>
+          <p class="hero-tag"><span data-lang="en">Dublin-based | Sales, Marketing, CRM & Digital</span><span data-lang="fr">Basé à Dublin | Sales, Marketing, CRM & Digital</span></p>
+          <h1><span data-lang="en">Felix Perrault</span><span data-lang="fr">Felix Perrault</span></h1>
           <div class="hero-typing"><span id="typed"></span><span class="cblink"></span></div>
-          <p class="hero-loc"><span data-lang="en">📍 Dublin, Ireland</span><span data-lang="fr">📍 Dublin, Irlande</span></p>
-          <div class="tickers">
-            <div class="tick">DeFi <span class="arrow green">↑</span> 90%</div>
-            <div class="tick">AI SKILLS <span class="arrow green">↑</span> Building</div>
-            <div class="tick">BTC <span class="arrow orange">↑</span> HODLing</div>
-            <div class="tick">OPEN TO <span class="arrow purple">🎯</span> Opportunities</div>
-          </div>
+          <p class="hero-intro"><span data-lang="en">Multilingual business profile with experience in B2B/B2C sales, client operations, CRM and digital tools. Based in Dublin and open to new opportunities.</span><span data-lang="fr">Profil business multilingue avec une expérience en vente B2B/B2C, opérations client, CRM et outils digitaux. Basé à Dublin et ouvert à de nouvelles opportunités.</span></p>
           <div class="hero-btns">
-            <a href="#contact" class="btn btn-p"><span data-lang="en">Open to opportunities</span><span data-lang="fr">Ouvert aux opportunités</span></a>
-            <a href="#portfolio" class="btn btn-o"><span data-lang="en">Explore my work</span><span data-lang="fr">Explorer mon travail</span></a>
+            <a href="#contact" class="btn btn-p"><span data-lang="en">Contact me</span><span data-lang="fr">Me contacter</span></a>
+            <a href="#xp" class="btn btn-o"><span data-lang="en">See my experience</span><span data-lang="fr">Voir mon expérience</span></a>
           </div>
         </div>
         <div class="hero-profile">
@@ -677,7 +673,7 @@
           <div class="exp-c">
             <div class="exp-status active"><span data-lang="en">🟢 ACTIVE — COGNIZANT — DUBLIN — FEB. 2025 → PRESENT</span><span data-lang="fr">🟢 ACTIVE — COGNIZANT — DUBLIN — FÉV. 2025 → PRÉSENT</span></div>
             <p class="exp-co">Cognizant</p>
-            <p class="exp-role" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;"><img src="https://cdn.simpleicons.org/google/4285F4" width="14" height="14" alt="Google" loading="lazy" style="vertical-align:middle;">Google Maps Moderator</p>
+            <p class="exp-role"><img src="https://cdn.simpleicons.org/google/4285F4" width="14" height="14" alt="Google" loading="lazy" style="vertical-align:middle;">Google Maps Moderator</p>
             <p class="exp-loc"><span data-lang="en">📍 Dublin, Ireland</span><span data-lang="fr">📍 Dublin, Irlande</span></p>
             <p style="font-size:.82rem;color:var(--muted);margin-bottom:8px;font-style:italic"><span data-lang="en">Key returns :</span><span data-lang="fr">Rendements clés :</span></p>
             <ul class="exp-ul">
@@ -951,11 +947,11 @@
 
     /* ============ LANGUAGE SWITCH ============ */
     const phrasesI18n={
-      en:["Sales & Marketing Professional","CRM & Digital Tools Expert","Learning to build with AI 🤖","The Analyst 📊"],
-      fr:["Professionnel Vente & Marketing","Expert CRM & Outils Digitaux","J'apprends à coder avec l'IA 🤖","L'Analyste 📊"]
+      en:["Sales-driven marketing profile","CRM & digital tools mindset","B2B/B2C sales & client operations","Open to opportunities in Dublin"],
+      fr:["Profil marketing orienté vente","Mindset CRM & outils digitaux","Vente B2B/B2C & opérations client","Ouvert aux opportunités à Dublin"]
     };
     let curLang='en';
-    const phrases=["Sales & Marketing Professional","CRM & Digital Tools Expert","Learning to build with AI 🤖","The Analyst 📊"];
+    const phrases=["Sales-driven marketing profile","CRM & digital tools mindset","B2B/B2C sales & client operations","Open to opportunities in Dublin"];
     function setLang(lang){
       curLang=lang;
       html.setAttribute('data-lang',lang);
@@ -982,7 +978,7 @@
     /* ============ TYPEWRITER ============ */
     let pI=0,cI=0,del=false;const tOut=document.getElementById('typed');
     function typeE(){const ph=phrases[pI];if(!del){tOut.textContent=ph.substring(0,cI+1);cI++;if(cI===ph.length){del=true;setTimeout(typeE,2000);return}setTimeout(typeE,55)}else{tOut.textContent=ph.substring(0,cI-1);cI--;if(cI===0){del=false;pI=(pI+1)%phrases.length;setTimeout(typeE,400);return}setTimeout(typeE,28)}}
-    typeE();
+    if(tOut) typeE();
 
     /* ============ PARTICLES + MOUSE REPULSION ============ */
     const cv=document.getElementById('pCanvas'),cx=cv.getContext('2d');let pts=[];
