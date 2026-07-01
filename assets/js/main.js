@@ -3,7 +3,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
-  
+
 
     feather.replace();
 
@@ -37,11 +37,11 @@
 
     /* ============ LANGUAGE SWITCH ============ */
     const phrasesI18n={
-      en:["Sales & CRM professional","Marketing & digital operations","B2B prospecting and client work","Based in Dublin · open to work"],
-      fr:["Profil vente & CRM","Marketing & opérations digitales","Prospection B2B et relation client","Basé à Dublin · ouvert aux opportunités"]
+      en:["Sales & CRM professional","Marketing & digital operations","B2B prospecting and client work","Based in France · available September 2026"],
+      fr:["Profil vente & CRM","Marketing & opérations digitales","Prospection B2B et relation client","Basé en France · disponible septembre 2026"]
     };
     let curLang='en';
-    const phrases=["Sales & CRM professional","Marketing & digital operations","B2B prospecting and client work","Based in Dublin · open to work"];
+    const phrases=["Sales & CRM professional","Marketing & digital operations","B2B prospecting and client work","Based in France · available September 2026"];
     function setLang(lang){
       curLang=lang;
       html.setAttribute('data-lang',lang);
@@ -96,7 +96,6 @@
       const legBarObs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const b=e.target,w=b.dataset.w;if(w){b.style.width=w+'%';b.classList.add('animated')}legBarObs.unobserve(b)})},{threshold:.3});
       document.querySelectorAll('.pf-legend .leg-bar').forEach(b=>legBarObs.observe(b));
     })();
-
 
     /* ============ TIMELINE ============ */
     const tlItems=document.querySelectorAll('.tl-item'),tlFill=document.getElementById('tlFill'),tlEl=document.getElementById('tl');
