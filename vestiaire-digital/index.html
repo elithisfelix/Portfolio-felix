@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark" data-lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestiaire Digital | Communication IA pour clubs de football amateurs</title>
+  <meta name="description" content="Vestiaire Digital aide les clubs de football amateurs a professionnaliser leur communication grace a l'IA, des templates visuels, des newsletters et une meilleure valorisation des sponsors locaux.">
+  <meta property="og:title" content="Vestiaire Digital | Communication IA pour clubs de football amateurs">
+  <meta property="og:description" content="Vestiaire Digital aide les clubs de football amateurs a professionnaliser leur communication grace a l'IA, des templates visuels, des newsletters et une meilleure valorisation des sponsors locaux.">
+  <meta property="og:url" content="https://portfolio-felix-olive.vercel.app/vestiaire-digital/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vestiaire Digital | Communication IA pour clubs de football amateurs">
+  <meta name="twitter:description" content="Vestiaire Digital aide les clubs de football amateurs a professionnaliser leur communication grace a l'IA, des templates visuels, des newsletters et une meilleure valorisation des sponsors locaux.">
+  <meta name="author" content="Felix Perrault">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23080808'/><text x='50' y='68' font-family='monospace' font-size='44' font-weight='bold' fill='%2300ff87' text-anchor='middle'>FP</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+  <div class="loader" id="loader"><div class="loader-txt">VD</div></div>
+  <div class="cur-dot" id="cDot"></div>
+  <div id="trailBox"></div>
+  <div class="scroll-bar" id="sBar"></div>
+  <div class="confetti-c" id="confC"></div>
+  <div class="e-msg" id="eMsg">Vestiaire Digital<br><span style="font-size:.85rem;color:var(--muted)">Projet entrepreneurial 2026</span></div>
+
+  <nav>
+    <div class="nav-in">
+      <a href="/" class="nav-logo">FP<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#problem" onclick="closeM()">Probl&egrave;me</a></li>
+        <li><a href="#solution" onclick="closeM()">Solution</a></li>
+        <li><a href="#offers" onclick="closeM()">Offres</a></li>
+        <li><a href="#roadmap" onclick="closeM()">Roadmap</a></li>
+        <li><a href="#contact" onclick="closeM()">Contact</a></li>
+        <li><button class="theme-btn" id="themeBtn" aria-label="Theme">Theme</button></li>
+        <li>
+          <div class="lang-sw" role="group" aria-label="Language">
+            <button id="btnFr" aria-pressed="true" onclick="setLang('fr')">FR</button>
+            <button id="btnEn" aria-pressed="false" onclick="setLang('en')">EN</button>
+          </div>
+        </li>
+        <li class="nav-version-sw">
+          <a href="/pro" class="nav-ver">Pro</a>
+          <span class="nav-ver-sep">/</span>
+          <a href="/perso" class="nav-ver">Perso</a>
+        </li>
+      </ul>
+      <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero vd-hero" id="hero">
+    <canvas id="pCanvas"></canvas>
+    <div class="aurora au1"></div>
+    <div class="aurora au2"></div>
+    <div class="aurora au3"></div>
+    <div class="container">
+      <div class="hero-content vd-hero-grid">
+        <div class="hero-left">
+          <p class="hero-tag">Projet en construction &middot; 2026</p>
+          <h1>Vestiaire Digital</h1>
+          <div class="hero-typing">La communication des clubs de football amateurs, simplifi&eacute;e gr&acirc;ce &agrave; l'IA.<span class="cblink"></span></div>
+          <p class="hero-intro">Un projet entrepreneurial lanc&eacute; par Felix Perrault pour aider les clubs amateurs &agrave; communiquer plus r&eacute;guli&egrave;rement, valoriser leurs partenaires et gagner du temps gr&acirc;ce aux outils digitaux et &agrave; l'intelligence artificielle.</p>
+          <div class="vd-tags" aria-label="Themes du projet">
+            <span class="badge">Football amateur</span>
+            <span class="badge o">IA</span>
+            <span class="badge">Communication digitale</span>
+            <span class="badge v">Sponsors</span>
+            <span class="badge">Clubs locaux</span>
+            <span class="badge o">Projet 2026</span>
+          </div>
+          <div class="hero-btns">
+            <a href="#problem" class="btn btn-p">D&eacute;couvrir le projet</a>
+            <a href="#contact" class="btn btn-o">Me contacter</a>
+          </div>
+        </div>
+        <div class="vd-hero-panel rv rv-up">
+          <span class="srv-price green">Solution packag&eacute;e</span>
+          <h2>Proche du terrain, simple &agrave; lancer.</h2>
+          <p>Vestiaire Digital n'est pas une agence classique. C'est une offre claire, abordable et adapt&eacute;e aux dirigeants b&eacute;n&eacute;voles qui veulent mieux communiquer sans ajouter de complexit&eacute;.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-fr="Le probl&egrave;me des clubs amateurs.">Le probl&egrave;me des clubs amateurs<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up">Chaque week-end, les clubs amateurs vivent beaucoup de choses : matchs, r&eacute;sultats, &eacute;v&eacute;nements, b&eacute;n&eacute;voles, &eacute;cole de foot, partenaires locaux et moments de vie associative.</p>
+      <div class="about-wrap rv rv-up">
+        <p>Mais dans beaucoup de clubs, la communication repose sur quelques b&eacute;n&eacute;voles d&eacute;j&agrave; tr&egrave;s sollicit&eacute;s. R&eacute;sultat : les publications sont irr&eacute;guli&egrave;res, les sponsors sont peu visibles et l'image du club ne refl&egrave;te pas toujours l'&eacute;nergie r&eacute;elle du terrain.</p>
+      </div>
+      <div class="vd-card-grid">
+        <div class="sw-card rv rv-up"><div class="sw-icon">01</div><h4>Manque de temps</h4><p>Les b&eacute;n&eacute;voles g&egrave;rent d&eacute;j&agrave; le sportif, l'administratif et les urgences du quotidien.</p></div>
+        <div class="sw-card rv rv-up"><div class="sw-icon">02</div><h4>Publications irr&eacute;guli&egrave;res</h4><p>Les infos existent, mais elles ne deviennent pas toujours des contenus pr&ecirc;ts &agrave; publier.</p></div>
+        <div class="sw-card rv rv-up"><div class="sw-icon">03</div><h4>Sponsors peu valoris&eacute;s</h4><p>Les partenaires locaux soutiennent le club, mais leur visibilit&eacute; digitale reste souvent limit&eacute;e.</p></div>
+        <div class="sw-card rv rv-up"><div class="sw-icon">04</div><h4>Image digitale sous-exploit&eacute;e</h4><p>Le club vit fort sur le terrain, mais son image en ligne ne montre pas toujours cette &eacute;nergie.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solution">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-fr="Une communication simple, r&eacute;guli&egrave;re et pr&ecirc;te &agrave; publier.">Une communication simple, r&eacute;guli&egrave;re et pr&ecirc;te &agrave; publier<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up">Vestiaire Digital transforme les informations brutes du club en contenus clairs, propres et pr&ecirc;ts &agrave; publier.</p>
+      <div class="badges-grid">
+        <div class="badge-group rv rv-up"><h4>Contenus r&eacute;seaux sociaux</h4><div class="badges"><span class="badge">Posts</span><span class="badge o">L&eacute;gendes</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Visuels avant-match</h4><div class="badges"><span class="badge">Matchday</span><span class="badge v">Templates</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Visuels r&eacute;sultats</h4><div class="badges"><span class="badge">Scores</span><span class="badge o">Recap</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Posts partenaires</h4><div class="badges"><span class="badge">Sponsors</span><span class="badge v">Local</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Newsletters</h4><div class="badges"><span class="badge">Club</span><span class="badge o">Mensuel</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Mises a jour simples du site web</h4><div class="badges"><span class="badge">Infos</span><span class="badge v">Pratique</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Planning &eacute;ditorial</h4><div class="badges"><span class="badge">Rythme</span><span class="badge o">Organisation</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Templates graphiques</h4><div class="badges"><span class="badge">Identite</span><span class="badge v">Coherence</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Production IA relue humainement</h4><div class="badges"><span class="badge">IA</span><span class="badge o">Controle</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="offers">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-fr="Des offres packag&eacute;es pour rester simple.">Des offres packag&eacute;es pour rester simple<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up">Trois niveaux clairs pour tester le marche avec des clubs pilotes, sans promettre plus que ce que le projet peut livrer au lancement.</p>
+      <div class="srv-grid vd-offers">
+        <div class="srv-card green rv rv-up">
+          <span class="srv-price green">199 EUR/mois</span>
+          <h3>Starter</h3>
+          <p>Pour les clubs qui veulent installer une pr&eacute;sence r&eacute;guli&egrave;re sans complexit&eacute;.</p>
+          <ul class="vd-list"><li>8 contenus par mois</li><li>visuels avant-match et r&eacute;sultats</li><li>l&eacute;gendes pr&ecirc;tes &agrave; publier</li><li>mini-planning mensuel</li><li>int&eacute;gration du sponsor principal</li></ul>
+        </div>
+        <div class="srv-card orange vd-featured rv rv-up">
+          <span class="read-badge">Recommand&eacute;e</span>
+          <span class="srv-price orange">349 EUR/mois</span>
+          <h3>Club R&eacute;gulier</h3>
+          <p>Pour les clubs qui veulent une vraie routine de communication.</p>
+          <ul class="vd-list"><li>12 contenus par mois</li><li>3 publications par semaine</li><li>newsletter mensuelle</li><li>mise en avant partenaire</li><li>coordination mensuelle l&eacute;g&egrave;re</li></ul>
+        </div>
+        <div class="srv-card violet rv rv-up">
+          <span class="srv-price violet">499 EUR/mois</span>
+          <h3>Saison Compl&egrave;te</h3>
+          <p>Pour les clubs qui veulent d&eacute;l&eacute;guer l'essentiel de leur communication digitale.</p>
+          <ul class="vd-list"><li>jusqu'a 16 contenus par mois</li><li>calendrier &eacute;ditorial</li><li>newsletter structur&eacute;e</li><li>mises &agrave; jour simples du site</li><li>rapport mensuel d'impact</li><li>priorit&eacute; de traitement</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-fr="Pourquoi je construis Vestiaire Digital.">Pourquoi je construis Vestiaire Digital<span class="dot">.</span></h2>
+      <div class="about-wrap rv rv-up">
+        <p>Le football amateur joue un r&ocirc;le central dans la vie locale. Apr&egrave;s plusieurs exp&eacute;riences en vente, CRM, op&eacute;rations client et outils digitaux, j'ai identifi&eacute; une opportunit&eacute; concr&egrave;te : utiliser l'IA pour aider les associations sportives &agrave; mieux communiquer sans leur ajouter une charge de travail suppl&eacute;mentaire.</p>
+        <div class="about-hi">
+          <span class="badge">football</span><span class="badge o">communication</span><span class="badge">CRM</span><span class="badge v">IA</span><span class="badge o">entrepreneuriat</span><span class="badge">economie locale</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="built">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-fr="Un projet d&eacute;j&agrave; structur&eacute;.">Un projet d&eacute;j&agrave; structur&eacute;<span class="dot">.</span></h2>
+      <div class="vd-card-grid">
+        <div class="pf-sc rv rv-up"><div class="pf-sv">01</div><div class="pf-sl">positionnement commercial</div></div>
+        <div class="pf-sc rv rv-up"><div class="pf-sv">02</div><div class="pf-sl">cible claire</div></div>
+        <div class="pf-sc rv rv-up"><div class="pf-sv">03</div><div class="pf-sl">offres packag&eacute;es</div></div>
+        <div class="pf-sc rv rv-up"><div class="pf-sv">04</div><div class="pf-sl">grille tarifaire</div></div>
+        <div class="pf-sc rv rv-up"><div class="pf-sv">05</div><div class="pf-sl">r&eacute;flexion sponsor</div></div>
+        <div class="pf-sc rv rv-up"><div class="pf-sv">06</div><div class="pf-sl">premiers workflows IA</div></div>
+        <div class="pf-sc rv rv-up"><div class="pf-sv">07</div><div class="pf-sl">page projet sur le portfolio</div></div>
+        <div class="pf-sc rv rv-up"><div class="pf-sv">08</div><div class="pf-sl">templates en cours de construction</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-fr="Etat du projet.">Etat du projet<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up">Objectif : signer les premiers clubs pilotes.</p>
+      <div class="vd-roadmap">
+        <div class="memo rv rv-up">
+          <div class="memo-head">Actuellement</div>
+          <p>validation du march&eacute;</p>
+          <p>cr&eacute;ation des premi&egrave;res offres</p>
+          <p>construction des templates</p>
+          <p>structuration du process</p>
+        </div>
+        <div class="memo rv rv-up">
+          <div class="memo-head">Prochaines etapes</div>
+          <p>premiers &eacute;changes avec des clubs</p>
+          <p>cr&eacute;ation de mockups visuels</p>
+          <p>test avec clubs pilotes</p>
+          <p>am&eacute;lioration de l'offre selon les retours terrain</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills-demo">
+    <div class="container">
+      <h2 class="section-title rv rv-up" data-text-fr="Ce que ce projet d&eacute;montre.">Ce que ce projet d&eacute;montre<span class="dot">.</span></h2>
+      <p class="section-sub rv rv-up">Cette page pr&eacute;sente aussi aux recruteurs ma capacit&eacute; &agrave; transformer une id&eacute;e terrain en offre claire, structur&eacute;e et orient&eacute;e ex&eacute;cution.</p>
+      <div class="badges-grid">
+        <div class="badge-group rv rv-up"><h4>Analyse de marche</h4><div class="badges"><span class="badge">Cible</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Construction d'offre</h4><div class="badges"><span class="badge o">Pricing</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Positionnement commercial</h4><div class="badges"><span class="badge">B2B</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Marketing digital</h4><div class="badges"><span class="badge v">Contenu</span></div></div>
+        <div class="badge-group rv rv-up"><h4>CRM</h4><div class="badges"><span class="badge">Process</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Communication B2B/B2C</h4><div class="badges"><span class="badge o">Clubs</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Usage concret de l'IA</h4><div class="badges"><span class="badge v">Production</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Cr&eacute;ation de landing page</h4><div class="badges"><span class="badge">Web</span></div></div>
+        <div class="badge-group rv rv-up"><h4>Esprit entrepreneurial</h4><div class="badges"><span class="badge o">Lancement</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="ct-simple rv rv-up">
+        <h2 class="section-title" data-text-fr="Vous etes un club, un dirigeant ou un partenaire local ?">Vous &ecirc;tes un club, un dirigeant ou un partenaire local ?<span class="dot">.</span></h2>
+        <p class="ct-lead">Je cherche actuellement &agrave; &eacute;changer avec des clubs amateurs pour tester, am&eacute;liorer et lancer Vestiaire Digital sur le terrain.</p>
+        <div class="ct-actions">
+          <a href="mailto:elithisfelix@gmail.com?subject=Vestiaire%20Digital" class="btn btn-p">Me contacter</a>
+          <a href="https://www.linkedin.com/in/felix-perrault/" target="_blank" rel="noopener" class="btn btn-o">Voir mon LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="ft-name">Felix Perrault</p>
+      <p class="ft-role">Vestiaire Digital &middot; Projet entrepreneurial 2026</p>
+      <div class="ft-meta">
+        <a href="mailto:elithisfelix@gmail.com"><i data-feather="mail"></i> elithisfelix@gmail.com</a>
+        <a href="https://www.linkedin.com/in/felix-perrault/" target="_blank" rel="noopener"><i data-feather="linkedin"></i> LinkedIn</a>
+        <a href="/pro"><i data-feather="arrow-left"></i> Retour au portfolio pro</a>
+      </div>
+      <p class="ft-copy">2026 &middot; Vestiaire Digital est en phase de lancement.</p>
+    </div>
+  </footer>
+
+  <button class="btt" id="btt" aria-label="Top"><i data-feather="arrow-up"></i></button>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
